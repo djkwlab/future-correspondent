@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="pl" data-theme="paper">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHQJPPH5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JXPHQJPPH5');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The fertility crisis was supposed to be solved by giving humans three ways to reproduce. Instead, we got subscription incubators, pouch custody disputes and a new generation of parents nostalgic for the days when pregnancy was merely terrifying.">
+<title>Macica, jajo czy torba?</title>
+<style>
+:root {
+  --bg:#f4efe6; --paper:#fbf8f1; --text:#25231f; --muted:#716b61;
+  --accent:#b44d2f; --line:#d8d0c3; --panel:rgba(251,248,241,.92);
+  --serif: Georgia, "Times New Roman", serif; --sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --size:20px; --measure:700px;
+}
+html[data-theme="night"] {
+  --bg:#141413; --paper:#1c1c1a; --text:#e9e5dc; --muted:#aaa399;
+  --accent:#e68b68; --line:#3b3934; --panel:rgba(28,28,26,.94);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:var(--serif); }
+.progress { position:fixed; inset:0 0 auto 0; height:3px; z-index:30; background:transparent; }
+.progress > div { height:100%; width:0; background:var(--accent); }
+.toolbar {
+  position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; gap:12px;
+  padding:10px 16px; border-bottom:1px solid var(--line); background:var(--panel);
+  backdrop-filter:blur(14px); font-family:var(--sans);
+}
+.toolbar .group { display:flex; gap:8px; align-items:center; }
+button {
+  border:1px solid var(--line); background:var(--paper); color:var(--text); border-radius:999px;
+  min-width:38px; height:38px; padding:0 12px; cursor:pointer; font:600 14px var(--sans);
+}
+button:hover { border-color:var(--accent); }
+.lang-link {
+  display:inline-flex; align-items:center; justify-content:center; min-width:38px; height:38px;
+  padding:0 10px; border:1px solid var(--line); border-radius:999px; color:var(--text);
+  text-decoration:none; font:700 13px var(--sans);
+}
+.lang-link:hover, .lang-link.active { border-color:var(--accent); color:var(--accent); }
+.hero { max-width:1000px; margin:0 auto; padding:clamp(56px,10vw,120px) 24px 56px; }
+.kicker { font:700 12px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+h1 { font-size:clamp(54px,9vw,112px); line-height:.88; letter-spacing:-.055em; margin:18px 0 28px; max-width:900px; }
+.subtitle { font:700 clamp(22px,3vw,36px)/1.12 var(--sans); max-width:820px; margin:0 0 22px; }
+.dek { font-size:clamp(20px,2.2vw,27px); line-height:1.4; color:var(--muted); max-width:780px; }
+.meta { margin-top:32px; font:600 13px var(--sans); color:var(--muted); }
+.layout { display:grid; grid-template-columns:minmax(0,1fr); max-width:1200px; margin:0 auto; padding:0 24px 100px; }
+.toc {
+  position:fixed; left:24px; top:82px; width:230px; max-height:calc(100vh - 110px); overflow:auto;
+  padding:18px; border:1px solid var(--line); border-radius:18px; background:var(--panel);
+  backdrop-filter:blur(12px); font-family:var(--sans); transform:translateX(-130%); transition:.25s ease; z-index:25;
+}
+.toc.open { transform:translateX(0); }
+.toc strong { display:block; margin-bottom:12px; font-size:13px; }
+.toc a { display:block; color:var(--muted); text-decoration:none; padding:7px 0; font-size:13px; line-height:1.25; }
+.toc a:hover { color:var(--accent); }
+article { width:min(100%,var(--measure)); margin:0 auto; font-size:var(--size); line-height:1.72; }
+article p { margin:0 0 1.25em; }
+article p:first-of-type::first-letter {
+  float:left; font-size:4.7em; line-height:.78; padding:.08em .08em 0 0; color:var(--accent);
+}
+h2 { font:800 clamp(34px,5vw,58px)/.98 var(--sans); letter-spacing:-.045em; margin:2.3em 0 .7em; scroll-margin-top:80px; }
+.display-line {
+  font:800 13px/1.5 var(--sans); letter-spacing:.08em; text-transform:uppercase; padding:14px 16px;
+  border-left:3px solid var(--accent); background:color-mix(in srgb,var(--accent) 7%,transparent);
+}
+.reader-note {
+  margin:70px auto 0; padding:24px; border-top:1px solid var(--line); color:var(--muted);
+  font:14px/1.5 var(--sans); width:min(100%,var(--measure)); text-align:center;
+}
+.reader-note p { margin:.35em 0; }
+@media (max-width:700px) {
+  .toolbar { padding:8px 10px; }
+  .toolbar .label { display:none; }
+  .hero { padding-left:20px; padding-right:20px; }
+  .layout { padding-left:20px; padding-right:20px; }
+  article { line-height:1.62; }
+}
+@media print {
+  .toolbar,.progress,.toc { display:none!important; }
+  body { background:white; }
+  .hero,.layout { padding-left:0; padding-right:0; }
+}
+    .support-card {
+  width: min(100%, var(--measure));
+  margin: 80px auto 32px;
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.support-card h2 {
+  margin: 0 0 16px;
+  font: 800 clamp(28px, 4vw, 42px) / 1.05 var(--sans);
+  letter-spacing: -0.035em;
+}
+
+.support-card p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+  font: 17px / 1.6 var(--sans);
+}
+
+.support-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font: 700 15px var(--sans);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.support-button:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+    .nav-support {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 14px;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  text-decoration: none;
+  font: 700 13px var(--sans);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-support:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+</style>
+</head>
+<body>
+<div class="progress"><div id="progressBar"></div></div>
+
+<nav class="toolbar" aria-label="Reader controls">
+  <div class="group">
+    <button id="tocBtn" aria-label="Open contents">☰ <span class="label">Contents</span></button>
+  </div>
+  <div class="group">
+    <a class="lang-link" href="index.html" aria-label="English version">EN</a>
+    <a class="lang-link" href="es.html" aria-label="Versión en español">ES</a>
+    <a class="lang-link active" href="pl.html" aria-label="Wersja polska">PL</a>
+      <a
+      class="nav-support"
+      href="https://buymeacoffee.com/djkwlab"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Wesprzyj
+    </a>
+    <button id="smaller" aria-label="Decrease text size">A−</button>
+    <button id="larger" aria-label="Increase text size">A+</button>
+    <button id="widthBtn" aria-label="Change reading width">↔</button>
+    <button id="themeBtn" aria-label="Toggle night mode">◐</button>
+  </div>
+</nav>
+
+<aside class="toc" id="toc">
+  <strong>W tym reportażu</strong>
+<a href="#inkubator-w-kuchni">Inkubator w kuchni</a>
+<a href="#dzielnica-jaj">Dzielnica Jaj</a>
+<a href="#kobieta-która-wybrała-macicę">Kobieta, która wybrała macicę</a>
+<a href="#szkoła-rodzenia-dla-tradycjonalistów">Szkoła rodzenia dla tradycjonalistów</a>
+<a href="#dziecko-zmienia-ciało-o-18-15">Dziecko zmienia ciało o 18:15</a>
+<a href="#kalendarz-torby">Kalendarz Torby</a>
+<a href="#noc-z-torbą">Noc z Torbą</a>
+<a href="#biuro-torby">Biuro Torby</a>
+<a href="#lunch-z-lobby-jaja">Lunch z lobby Jaja</a>
+<a href="#publiczna-wylęgarnia">Publiczna wylęgarnia</a>
+<a href="#czy-to-wszystko-naprawiło-dzietność">Czy to wszystko naprawiło dzietność?</a>
+<a href="#trzy-domy">Trzy domy</a>
+</aside>
+
+<header class="hero">
+  <div class="kicker">Reportaż narracyjny · 2055</div>
+  <h1>Macica, jajo czy torba?</h1>
+  <p class="subtitle">Spędziłem trzy tygodnie z rodzicami roku 2055. Nikt nie wie, co robi.</p>
+  <p class="dek">Kryzys dzietności miał zostać rozwiązany przez danie ludziom trzech sposobów rozmnażania. Zamiast tego dostaliśmy inkubatory na abonament, spory o opiekę nad torbą i nowe pokolenie rodziców tęskniących za czasami, gdy ciąża była po prostu przerażająca.</p>
+  <div class="meta">Około 20 minut czytania</div>
+</header>
+
+<main class="layout">
+<article id="article">
+<p>O 7:42 w deszczowy wtorkowy poranek w Barcelonie nienarodzone dziecko prosi o aktualizację oprogramowania.</p>
+<p>Stoję boso w kuchni Laury Méndez i Marca Vidala, patrząc na ich córkę.</p>
+<p>Jest jajem.</p>
+<p>Jajo ma mniej więcej rozmiar małego arbuza i spoczywa w białej szklanej komorze pomiędzy ekspresem do kawy a miską pomarańczy. Po skorupie przesuwa się łagodne bursztynowe światło. Gdzieś w środku, po siedmiu miesiącach rozwoju, znajduje się człowiek, który waży obecnie 2,6 kilograma i nigdy nie doświadczył pogody.</p>
+<p>Inkubator wydaje dźwięk.</p>
+<p>Nie do końca alarm.</p>
+<p>Raczej odgłos, jaki wydaje drogi samochód, kiedy chce dać ci znać, że coś, gdzieś, być może wymaga uwagi.</p>
+<p>Marc patrzy na telefon.</p>
+<p>— Znowu?</p>
+<p>— Co? — pyta Laura.</p>
+<p>— Wilgotność.</p>
+<p>Ekran inkubatora się zmienia.</p>
+<p class="display-line">WYKRYTO WAHANIE WILGOTNOŚCI
+ZDROWIE EMBRIONALNE: 99,4%
+ZALECANE DZIAŁANIE DOSTĘPNE</p>
+<p>Marc dotyka ekranu.</p>
+<p>Pojawia się drugi komunikat.</p>
+<p class="display-line">Przejdź na NestLife Premium Care, aby odblokować szczegółowe zalecenia.</p>
+<p>Nikt nic nie mówi.</p>
+<p>Deszcz uderza o balkon.</p>
+<p>Ekspres zaczyna mielić ziarna.</p>
+<p>Nienarodzone dziecko nadal istnieje na poziomie 99,4%.</p>
+<p>— Wczoraj było 99,6 — mówi Marc.</p>
+<p>— Wczoraj rano?</p>
+<p>— Chyba.</p>
+<p>— Chyba?</p>
+<p>— Mam zrzuty ekranu.</p>
+<p>Ma.</p>
+<p>Marc ma 318 zrzutów ekranu z parametrami zdrowotnymi swojej nienarodzonej córki.</p>
+<p>Laura patrzy na mnie.</p>
+<p>— Właśnie dlatego chciałam porodu z macicy.</p>
+<p>Marc podnosi wzrok znad telefonu.</p>
+<p>— Nie, nie chciałaś.</p>
+<p>— Rozważałam to.</p>
+<p>— Przez jedenaście minut.</p>
+<p>— To było bardzo poważne jedenaście minut.</p>
+<p>Inkubator znów wydaje ten dźwięk.</p>
+<p>Marc przeklina.</p>
+<p>To mój pierwszy poranek z Rodziną Jaja.</p>
+<p>Do końca tygodnia będę trzymał przenośną baterię inkubacyjną wartą więcej niż mój pierwszy samochód, odwiedzę państwowe przedszkole dla jaj pod centrum handlowym i zobaczę dwoje dorosłych ludzi kłócących się o to, czy skorupa ich nienarodzonego dziecka wygląda „odrobinę mniej matowo niż wczoraj”.</p>
+<p>Potem spędzę cztery dni z Rodziną Torby, w której sześciomiesięczne dziecko przemieszcza się między ciałami rodziców zgodnie ze wspólnym kalendarzem.</p>
+<p>Na koniec zamieszkam z kobietą robiącą coś, co dwadzieścia lat temu byłoby zupełnie zwyczajne.</p>
+<p>Jest w dziewiątym miesiącu ciąży.</p>
+<p>W 2055 roku czyni ją to radykałką.</p>
+<h2 id="inkubator-w-kuchni">Inkubator w kuchni</h2>
+<p>Pierwszą rzeczą, jaką zauważasz w ludzkim jaju, jest jego obecność.</p>
+<p>Ciąża może wejść do pokoju niezauważona.</p>
+<p>Jajo jest meblem.</p>
+<p>Laura i Marc mieszkają w dwupokojowym mieszkaniu w Poblenou. Mają sofę, stół, dwa rowery zawieszone na ścianie i, pośrodku kuchni, infrastrukturę reprodukcyjną wartą 11 000 euro.</p>
+<p>Jest główny inkubator.</p>
+<p>Jest inkubator zapasowy.</p>
+<p>Jest awaryjny moduł zasilania.</p>
+<p>Jest przenośna kołyska podróżna.</p>
+<p>Są trzy szczelnie zamknięte wkłady z wilgocią.</p>
+<p>Jest medyczny skaner skorupy.</p>
+<p>Jest małe czerwone pudełko, którego — jak mówi mi Marc — nigdy nie wolno mi dotykać.</p>
+<p>— Co jest w środku?</p>
+<p>— Awaryjna pianka stabilizująca.</p>
+<p>— Co robi?</p>
+<p>— Nie wiemy.</p>
+<p>— Czytaliście instrukcję?</p>
+<p>— Tak.</p>
+<p class="display-line">— I?</p>
+<p>— Nadal nie wiemy.</p>
+<p>Ich córka ma na imię Alma.</p>
+<p>Od 183 dni znajduje się poza ciałem Laury.</p>
+<p>Laura nosiła ją przez osiem tygodni. Potem jajo zostało wydobyte w klinice i umieszczone w medycznym inkubatorze. W dwunastym tygodniu Laura i Marc zabrali je do domu.</p>
+<p>Pytam, jakie to było uczucie.</p>
+<p>— Przerażające — mówi Laura.</p>
+<p>— Piękne — mówi Marc.</p>
+<p>— Przerażające.</p>
+<p>— Piękne i przerażające.</p>
+<p>— Nie. Głównie przerażające.</p>
+<p>Szpital przeprowadził dla nich dwugodzinne szkolenie.</p>
+<p>Obejmowało kontrolę temperatury, transport awaryjny, przerwy w dostawie prądu i coś, co nazywa się „nieoczekiwaną aktywnością skorupy”.</p>
+<p>— Co to jest nieoczekiwana aktywność skorupy? — pytam.</p>
+<p>— Też zapytaliśmy — mówi Laura.</p>
+<p>— Co odpowiedzieli?</p>
+<p>— Że będziemy wiedzieć.</p>
+<p>Patrzę na jajo.</p>
+<p>Jajo nic nie robi.</p>
+<p>Laura nalewa kawę.</p>
+<p>Jak wiele osób z jej pokolenia wybrała zewnętrzną inkubację częściowo dlatego, że nie chciała, by ciąża wykoleiła jej pracę. Jest architektką. Marc pracuje w cyberbezpieczeństwie. Oboje mają po 36 lat.</p>
+<p>O dzieciach rozmawiali od sześciu lat.</p>
+<p>Rozmowy zawsze kończyły się tak samo.</p>
+<p>Nie teraz.</p>
+<p>Po następnym awansie.</p>
+<p>Po mieszkaniu.</p>
+<p>Kiedy spadną stopy procentowe.</p>
+<p>Po projekcie.</p>
+<p>Po lecie.</p>
+<p>Po Bożym Narodzeniu.</p>
+<p>Kiedy życie stanie się stabilniejsze.</p>
+<p>Życie nie stało się stabilniejsze.</p>
+<p>Wtedy Hiszpania rozszerzyła Program Darmowego Jaja.</p>
+<p>Każdy obywatel uzyskał prawo do jednego podstawowego inkubatora, awaryjnego wsparcia energetycznego i dostępu do miejskich centrów inkubacji.</p>
+<p>Laura i Marc się zapisali.</p>
+<p>— Czy program sprawił, że zdecydowaliście się na dziecko? — pytam.</p>
+<p>Laura zastanawia się.</p>
+<p>— Usunął część wymówek.</p>
+<p>Marc wygląda na urażonego.</p>
+<p>— To nie były wymówki.</p>
+<p>— To były bardzo wyrafinowane wymówki.</p>
+<p>Państwowy inkubator był darmowy.</p>
+<p>Oddali go po trzech tygodniach.</p>
+<p>— Był całkowicie bezpieczny — mówi Marc.</p>
+<p>— Co było z nim nie tak?</p>
+<p>— Aplikacja była fatalna.</p>
+<p>Kupili NestLife Pro.</p>
+<p>Podstawowy model kosztuje 3800 euro.</p>
+<p>Potem przyszły akcesoria.</p>
+<p>Potem subskrypcje.</p>
+<p>Potem systemy zapasowe.</p>
+<p>Potem ubezpieczenie.</p>
+<p>Pytam, ile wydali.</p>
+<p>Marc mówi 8000 euro.</p>
+<p>Laura mówi 11 000.</p>
+<p>Marc mówi, że niektóre zakupy były niepotrzebne.</p>
+<p>Laura pyta które.</p>
+<p>Marc zmienia temat.</p>
+<p>Jajo stoi między nami.</p>
+<p>Zaczynam rozumieć coś o Ekonomii Jaja.</p>
+<p>Technologia nie usunęła rodzicielskiego lęku.</p>
+<p>Dała lękowi katalog produktów.</p>
+<h2 id="dzielnica-jaj">Dzielnica Jaj</h2>
+<p>W środę jadę z Laurą i Almą do miejskiego centrum inkubacji.</p>
+<p>Transport jaja wymaga przygotowania.</p>
+<p>Najpierw Laura odłącza główny przewód monitorujący.</p>
+<p>Potem podłącza przenośny czujnik.</p>
+<p>Następnie umieszcza jajo w amortyzującej skorupie podróżnej.</p>
+<p>Skorupa trafia do transportera z kontrolowaną temperaturą.</p>
+<p>Transporter podłącza się do baterii.</p>
+<p>Cała procedura trwa dziewięć minut.</p>
+<p>Pytam, czy nie byłoby łatwiej zostawić jajo w domu.</p>
+<p>— Tak — mówi Laura.</p>
+<p>— Więc dlaczego ją zabieramy?</p>
+<p>Laura patrzy na mnie, jakbym zaproponował zostawienie małego dziecka w szafie.</p>
+<p>— Ma wizytę.</p>
+<p>Jedziemy metrem.</p>
+<p>Przy drzwiach są wyznaczone miejsca na jaja. Wyglądają jak półki bagażowe zaprojektowane przez oddział intensywnej terapii noworodków.</p>
+<p>Młody mężczyzna już z jednego korzysta.</p>
+<p>Jego jajo znajduje się w przezroczystym transporterze oblepionym naklejkami.</p>
+<p>Jedna mówi:</p>
+<p class="display-line">DZIECKO NA POKŁADZIE</p>
+<p>Druga:</p>
+<p class="display-line">NIE STUKAĆ W SKORUPĘ</p>
+<p>Trzecia:</p>
+<p class="display-line">BABCIA SIĘ ŁADUJE…</p>
+<p>Laura zauważa, że patrzę.</p>
+<p>— Pierwsze jajo — szepcze.</p>
+<p>— Skąd wiesz?</p>
+<p>— Naklejki.</p>
+<p>Na stacji Diagonal wsiada starsza kobieta i natychmiast zaczyna pytać o jaja.</p>
+<p>Ile ma?</p>
+<p>Ile zostało do wyklucia?</p>
+<p>Skorupa naturalna czy wzmocniona?</p>
+<p>Młody mężczyzna grzecznie odpowiada.</p>
+<p>Laura patrzy na telefon.</p>
+<p>Alma: 99,7%.</p>
+<p>Uśmiecha się.</p>
+<p>— Co się stało?</p>
+<p>— Nic.</p>
+<p>— To dobrze?</p>
+<p>— Bardzo.</p>
+<p>Pięć minut wcześniej 99,4% było najwyraźniej kryzysem.</p>
+<p>Teraz 99,7% jest radością.</p>
+<p>Miejskie centrum inkubacji znajduje się pod kompleksem handlowym.</p>
+<p>Nad nami ludzie kupują buty sportowe.</p>
+<p>Pod nami 214 nienarodzonych ludzi rozwija się w klimatyzowanych szafach.</p>
+<p>Sala jest ogromna i bardzo cicha.</p>
+<p>Za szkłem ciągną się rzędy inkubatorów.</p>
+<p>Niektóre jaja są białe.</p>
+<p>Niektóre kremowe.</p>
+<p>Niektóre jasnoszare.</p>
+<p>Jedno ma szalik klubu piłkarskiego owinięty wokół podstawy.</p>
+<p>Spotyka się z nami technik o imieniu Óscar.</p>
+<p>Pracuje tu od sześciu lat.</p>
+<p>— Rodzice zostawiają je na noc? — pytam.</p>
+<p>— Oczywiście.</p>
+<p>— Na jak długo?</p>
+<p>— Niektórzy zostawiają je na miesiące.</p>
+<p>— Miesiące?</p>
+<p>Óscar wzrusza ramionami.</p>
+<p>— Ludzie podróżują.</p>
+<p>Prowadzi mnie obok skrzydła długoterminowej inkubacji.</p>
+<p>Każde jajo ma mały ekran.</p>
+<p>Imię.</p>
+<p>Etap rozwoju.</p>
+<p>Stan medyczny.</p>
+<p>Dane kontaktowe.</p>
+<p>Na jednym ekranie jest zdjęcie dwojga rodziców stojących na plaży w Tajlandii.</p>
+<p>Ich nienarodzone dziecko jest w Barcelonie.</p>
+<p>— Co o tym myślisz? — pytam Óscara.</p>
+<p>Wygląda na szczerze zdezorientowanego.</p>
+<p>— O Tajlandii?</p>
+<p>— O rodzicach zostawiających jajo.</p>
+<p>— Tutaj jest bezpieczne.</p>
+<p>— Mam na myśli emocjonalnie.</p>
+<p>Óscar się zastanawia.</p>
+<p>— Pytasz niewłaściwe pokolenie.</p>
+<p>Ma 29 lat.</p>
+<p>Dla niego jajo nie jest ciążą usuniętą z człowieka.</p>
+<p>To po prostu miejsce, z którego biorą się dzieci.</p>
+<p>Jego rodzice mieli go po staremu.</p>
+<p>Pełna macica.</p>
+<p>— Ty byś tak zrobił?</p>
+<p>Śmieje się.</p>
+<p>— Moja matka miała hemoroidy przez sześć miesięcy.</p>
+<p>Zapisuję to.</p>
+<p>— Proszę, nie umieszczaj tego w artykule.</p>
+<h2 id="kobieta-która-wybrała-macicę">Kobieta, która wybrała macicę</h2>
+<p>Trzy dni później stoję przed centrum prenatalnym w Gràcii.</p>
+<p>Szyld głosi:</p>
+<p class="display-line">DOM CIĄGŁOŚCI</p>
+<p>Pod spodem:</p>
+<p class="display-line">WSPARCIE PEŁNEJ CIĄŻY W EPOCE TECHNOLOGICZNEJ</p>
+<p>W środku wszystko jest beżowe.</p>
+<p>Ściany są beżowe.</p>
+<p>Meble są beżowe.</p>
+<p>Herbata jest w jakiś sposób beżowa.</p>
+<p>Kobieta o imieniu Elena siedzi na dużej poduszce, trzymając obie dłonie na brzuchu.</p>
+<p>Ma 34 lata i jest w 37. tygodniu ciąży.</p>
+<p>Jej dziecko znajduje się w całości wewnątrz jej ciała.</p>
+<p>Nie ma zewnętrznych czujników.</p>
+<p>Nie ma skorupy.</p>
+<p>Nie ma aplikacji.</p>
+<p>Nie ma baterii.</p>
+<p>Uważam to za zaskakująco niepokojące.</p>
+<p>— Skąd wiesz, że wszystko jest w porządku? — pytam.</p>
+<p>Elena patrzy na mnie.</p>
+<p>— Chodzę do lekarza.</p>
+<p>— Tak, ale teraz.</p>
+<p>— Rusza się.</p>
+<p>— A jeśli się nie rusza?</p>
+<p>— Martwię się.</p>
+<p>— I co wtedy?</p>
+<p>— Martwię się dalej.</p>
+<p>To jest, najwyraźniej, pierwotny system.</p>
+<p>Elena należy do mniejszości Pełnej Macicy.</p>
+<p>Trzydzieści jeden procent porodów w Europie Zachodniej odbywa się dziś w ten sposób.</p>
+<p>Spodziewano się, że liczba ta spadnie znacznie szybciej.</p>
+<p>Zamiast tego macica stała się polityczna.</p>
+<p>Niektórzy wybierają ją z powodów religijnych.</p>
+<p>Niektórzy z medycznych.</p>
+<p>Niektórzy dlatego, że nie ufają technologii.</p>
+<p>Niektórzy dlatego, że nie podoba im się pomysł, by ich nienarodzone dziecko miało w pobliżu port ładowania.</p>
+<p>Elena mówi, że nie kieruje się ideologią.</p>
+<p>Po prostu chciała doświadczyć ciąży.</p>
+<p>Jej przyjaciółki zareagowały tak, jakby ogłosiła zamiar przepłynięcia Atlantyku drewnianą łodzią.</p>
+<p>— Jedna zapytała, czy jestem przeciwko nauce.</p>
+<p>— Jesteś?</p>
+<p>— Mam robota odkurzającego.</p>
+<p>Jej pracodawca był mniej rozbawiony.</p>
+<p>Elena pracuje w firmie logistycznej.</p>
+<p>Kiedy powiedziała o ciąży, kierownik jej pogratulował.</p>
+<p>Potem zapytał, czy rozważała ekstrakcję.</p>
+<p>— Od razu?</p>
+<p>— Nie od razu. Była pauza.</p>
+<p>— Jak długa?</p>
+<p>— Może cztery sekundy.</p>
+<p>— To długa pauza.</p>
+<p>— Bardzo długa.</p>
+<p>Hiszpańskie prawo zabrania pracodawcom dyskryminacji ze względu na model reprodukcyjny.</p>
+<p>To prawo istnieje, ponieważ pracodawcy dyskryminują ze względu na model reprodukcyjny.</p>
+<p>Rodzice Jaja są uznawani za operacyjnie przewidywalnych.</p>
+<p>Rodzice Torby za operacyjnie elastycznych.</p>
+<p>Rodzice Macicy są uznawani, według jednego z ujawnionych dokumentów korporacyjnych z 2052 roku, za „ryzyko ciągłości reprodukcyjnej”.</p>
+<p>Odpowiedzialna firma przeprosiła.</p>
+<p>Zmieniła też określenie.</p>
+<p>Ciąża Eleny jest fizycznie trudna.</p>
+<p>Boli ją kręgosłup.</p>
+<p>Źle śpi.</p>
+<p>Przestała dojeżdżać do pracy w 34. tygodniu.</p>
+<p>Pytam, czy kiedykolwiek żałuje, że nie wybrała jaja.</p>
+<p>— Codziennie.</p>
+<p>Czekam.</p>
+<p>— Naprawdę?</p>
+<p>— Nie.</p>
+<p>Uśmiecha się.</p>
+<p>— Zapytaj mnie o trzeciej nad ranem.</p>
+<p>Dziecko się porusza.</p>
+<p>Widzę to przez jej koszulę.</p>
+<p>Po raz pierwszy w czasie mojego reportażu między mną a rozwijającym się dzieckiem nie ma ekranu.</p>
+<p>Nie ma procentu.</p>
+<p>Nie ma zielonego wskaźnika stanu.</p>
+<p>Nie ma prognozy.</p>
+<p>Tylko ruch.</p>
+<p>Pytam Elenę, czy dzięki temu czuje większą więź z dzieckiem.</p>
+<p>Wzdycha.</p>
+<p>— Wy zawsze o to pytacie.</p>
+<p>— Wy?</p>
+<p>— Dziennikarze. Rodzice Jaja. Moja matka.</p>
+<p>— O co powinienem zapytać?</p>
+<p>— Zapytaj, czy jest mi wygodnie.</p>
+<p>— Jest?</p>
+<p>— Nie.</p>
+<h2 id="szkoła-rodzenia-dla-tradycjonalistów">Szkoła rodzenia dla tradycjonalistów</h2>
+<p>Następnego ranka wracam do Domu Ciągłości.</p>
+<p>Siedem ciężarnych osób siedzi w kręgu.</p>
+<p>Obok siedzą ich partnerzy.</p>
+<p>Instruktorka wyjaśnia poród.</p>
+<p>Zapomniałem, jak brutalne są te diagramy.</p>
+<p>Dwadzieścia lat technologii reprodukcyjnej zmieniło naszą tolerancję na tradycyjny poród.</p>
+<p>Jeden z partnerów podnosi rękę.</p>
+<p>— Przepraszam. Cała głowa?</p>
+<p>Instruktorka kiwa głową.</p>
+<p>— Tamtędy?</p>
+<p>— Tak.</p>
+<p>Patrzy na swoją ciężarną żonę.</p>
+<p>Ona patrzy na niego.</p>
+<p>Coś między nimi przepływa.</p>
+<p>Być może miłość.</p>
+<p>Być może obwinianie.</p>
+<p>W przerwie rozmawiam z parą o imionach Dani i Irene.</p>
+<p>Rozważali wszystkie trzy modele.</p>
+<p>Odrzucili jajo, ponieważ Dani pracuje w oprogramowaniu.</p>
+<p>— Wiem, jak powstaje technologia — mówi.</p>
+<p>Odrzucili torbę, ponieważ Irene nie chciała implantu.</p>
+<p>Wybrali więc macicę.</p>
+<p>— Ludzie was oceniają? — pytam.</p>
+<p>— Bez przerwy — mówi Irene.</p>
+<p>— Za to, że jesteście tradycyjni?</p>
+<p>— Za to, że jesteśmy nieodpowiedzialni.</p>
+<p>To mnie zaskakuje.</p>
+<p>Wyjaśnia.</p>
+<p>Kiedy każdy model reprodukcyjny był biologicznym przeznaczeniem, komplikacje ciążowe były tragedią.</p>
+<p>Teraz mogą być interpretowane jako wybór konsumencki.</p>
+<p>Jeśli Irene będzie miała problem, ktoś zapyta, czy można było go uniknąć dzięki ekstrakcji.</p>
+<p>Jeśli jej kariera zwolni, ktoś zapyta, dlaczego wybrała opcję najmniej zgodną z pracą.</p>
+<p>Wybór, mówi, miał stworzyć wolność.</p>
+<p>Zamiast tego stworzył nowe sposoby obwiniania ludzi.</p>
+<p>Po drugiej stronie sali instruktorka woła wszystkich z powrotem.</p>
+<p>Następny temat to regeneracja mięśni dna miednicy.</p>
+<p>Dani zamyka oczy.</p>
+<h2 id="dziecko-zmienia-ciało-o-18-15">Dziecko zmienia ciało o 18:15</h2>
+<p>Rodzina Torby mieszka w Sant Cugat.</p>
+<p>Przyjeżdżam podczas wieczornego transferu.</p>
+<p>Nie celowo.</p>
+<p>Pociąg się spóźnił.</p>
+<p>Kiedy drzwi się otwierają, mężczyzna o imieniu Joel mówi:</p>
+<p>— Idealnie. Właśnie wychodzi.</p>
+<p>Znam Joela od jedenastu sekund.</p>
+<p>Ma rozpiętą koszulę.</p>
+<p>W torbie brzusznej znajduje się jego córka, Júlia.</p>
+<p>Ma pięć miesięcy.</p>
+<p>Albo siedem miesięcy prenatalnych.</p>
+<p>Terminologia pozostaje kontrowersyjna.</p>
+<p>Najpierw pojawia się jej głowa.</p>
+<p>Ma ciemne włosy i wściekły wyraz twarzy.</p>
+<p>Żona Joela, Marta, siedzi na sofie w ubraniu transferowym.</p>
+<p>— Spała? — pyta Marta.</p>
+<p>— Czterdzieści minut.</p>
+<p>— Tylko?</p>
+<p>— Może pięćdziesiąt.</p>
+<p>— Powiedziałeś czterdzieści.</p>
+<p>— Nie mierzyłem czasu.</p>
+<p>— Masz aplikację.</p>
+<p>— Pracowałem.</p>
+<p>— Nosiłeś naszą córkę.</p>
+<p>— Potrafię robić dwie rzeczy naraz.</p>
+<p>Marta patrzy na mnie.</p>
+<p>— Dlatego spada dzietność.</p>
+<p>Transfer jest zaskakująco spokojny.</p>
+<p>Joel siada obok Marty.</p>
+<p>Pielęgniarka nauczyła ich tego kilka miesięcy temu.</p>
+<p>Dziecko odłącza się od wewnętrznej błony odżywczej Joela, jest podtrzymywane pomiędzy ich ciałami i powoli osiada w torbie Marty.</p>
+<p>Trwa to cztery minuty.</p>
+<p>Júlia protestuje.</p>
+<p>Potem znika.</p>
+<p>Marta zamyka warstwę podtrzymującą koszuli.</p>
+<p>— To wszystko? — pytam.</p>
+<p>— To wszystko.</p>
+<p>Joel wstaje.</p>
+<p>Przeciąga się.</p>
+<p>Potem idzie do kuchni i otwiera piwo.</p>
+<p>Szybkość tej przemiany jest niezwykła.</p>
+<p>Cztery minuty temu biologicznie podtrzymywał rozwijającego się człowieka.</p>
+<p>Teraz szuka oliwek.</p>
+<p>— Jak się czujesz, kiedy odchodzi? — pytam.</p>
+<p>— Pusto.</p>
+<p>Zatrzymuje się.</p>
+<p>— Fizycznie pusto. Nie rób z tego poezji.</p>
+<p>Zapisuję to.</p>
+<h2 id="kalendarz-torby">Kalendarz Torby</h2>
+<p>Rodzinny kalendarz wyświetla się na ekranie w kuchni.</p>
+<p>Poniedziałek:
+JOEL — DZIECKO</p>
+<p>Wtorek:
+MARTA — DZIECKO</p>
+<p>Środa:
+JOEL RANO / MARTA PO POŁUDNIU</p>
+<p>Czwartek:
+BABCIA 14:00–19:00</p>
+<p>Piątek:
+MARTA — DZIECKO</p>
+<p>Sobota została pusta.</p>
+<p>Pytam dlaczego.</p>
+<p>— Negocjujemy — mówi Marta.</p>
+<p>Hiszpański Program Wspólnego Noszenia nagradza rodziny, które dzielą biologiczny czas noszenia.</p>
+<p>Rodzice nie muszą dzielić go po równo.</p>
+<p>Ale im bliżej są 50/50, tym większy roczny kredyt opiekuńczy.</p>
+<p>Rząd opisuje to jako wspieranie równości reprodukcyjnej.</p>
+<p>Joel opisuje to jako „państwo zmieniające mój brzuch w arkusz kalkulacyjny”.</p>
+<p>W zeszłym roku wybuchł skandal, kiedy okazało się, że kilka bogatych rodzin płaciło zarejestrowanym opiekunom za noszenie ich dzieci i pobierało premię za równość.</p>
+<p>Gazety nazwały to Pouchgate.</p>
+<p>Trzech ministrów podało się do dymisji.</p>
+<p>Jeden z nich nigdy nie nosił własnych dzieci, mimo że występował w rządowej kampanii z hasłem:</p>
+<p class="display-line">KAŻDE CIAŁO MOŻE OPIEKOWAĆ SIĘ</p>
+<p>Marta i Joel są obecnie na poziomie 54/46.</p>
+<p>Oboje uważają, że to oni mają 54.</p>
+<p>Oficjalna aplikacja zna odpowiedź.</p>
+<p>Żadne z nich nie chce jej otworzyć, kiedy tam jestem.</p>
+<p>Przy kolacji Júlia porusza się wewnątrz Marty.</p>
+<p>Ruch jest widoczny.</p>
+<p>Joel patrzy.</p>
+<p>— Widzisz?</p>
+<p>— Co?</p>
+<p>— Teraz jest aktywna.</p>
+<p>— Ze mną też była aktywna.</p>
+<p>— Nie tak.</p>
+<p>— Dosłownie kopnęła mnie podczas spotkania.</p>
+<p>— Bo chciała wyjść.</p>
+<p>To najbardziej równy system reprodukcyjny, jaki kiedykolwiek wymyślono.</p>
+<p>Nie zakończył konfliktów małżeńskich.</p>
+<p>Wygenerował lepsze dane.</p>
+<h2 id="noc-z-torbą">Noc z Torbą</h2>
+<p>Zostaję do drugiej w nocy.</p>
+<p>O 23:40 Júlia się budzi.</p>
+<p>Marta chodzi po mieszkaniu.</p>
+<p>O 00:15 budzi się ponownie.</p>
+<p>O 1:03 znowu.</p>
+<p>Dziecko technicznie jeszcze się nie urodziło.</p>
+<p>Już rujnuje wszystkim sen.</p>
+<p>O 1:20 Joel proponuje, że ją weźmie.</p>
+<p>Marta mówi nie.</p>
+<p>O 1:25 mówi tak.</p>
+<p>Przeprowadzają transfer prawie po ciemku.</p>
+<p>Bez kłótni.</p>
+<p>Bez kalendarza.</p>
+<p>Bez rządowej zachęty.</p>
+<p>Marta zasypia niemal natychmiast.</p>
+<p>Joel siedzi na sofie z Júlią w środku.</p>
+<p>Siedzę naprzeciwko.</p>
+<p>Przez chwilę żaden z nas się nie odzywa.</p>
+<p>Potem mówi:</p>
+<p>— To jest część, której ludzie nie rozumieją.</p>
+<p>— Która?</p>
+<p>Patrzy w dół.</p>
+<p>— Że to jest ciężkie.</p>
+<p>— Dziecko?</p>
+<p>— Nie.</p>
+<p>Szuka słowa.</p>
+<p>— Bycie potrzebnym.</p>
+<p>W mieszkaniu panuje cisza.</p>
+<p>Myślę, że to może być najgłębsza rzecz, jaką ktoś powiedział mi przez trzy tygodnie reportażu.</p>
+<p>Wtedy monitor jego torby wibruje.</p>
+<p>Patrzy na niego.</p>
+<p>— Przepraszam. Zrobiła kupę.</p>
+<h2 id="biuro-torby">Biuro Torby</h2>
+<p>Następnego ranka odwiedzam miejsce pracy Joela.</p>
+<p>Jego firma ma 400 pracowników i dziewięć pokoi transferowych.</p>
+<p>Pierwotnie nazywano je Obiektami Wymiany Opieki Biologicznej.</p>
+<p>Nikt tej nazwy nie używał.</p>
+<p>Teraz nazywają się Pokojami Dziecka.</p>
+<p>W jednym jest sofa, zlew, sprzęt medyczny i oprawiony plakat:</p>
+<p class="display-line">DZIELENIE NOSZENIA TO DZIELENIE OPIEKI</p>
+<p>Ktoś dopisał pod spodem:</p>
+<p class="display-line">CHYBA ŻE MARTA MA TERMIN</p>
+<p>Dział HR próbował usunąć napis dwa razy.</p>
+<p>Zawsze wraca.</p>
+<p>Joel mówi mi, że rodzice Torby są na ogół dobrze traktowani w firmie.</p>
+<p>Potem wchodzimy na spotkanie.</p>
+<p>Jest sześć osób.</p>
+<p>Trzy noszą dzieci.</p>
+<p>Nikt o tym nie wspomina.</p>
+<p>Dwadzieścia minut po rozpoczęciu spotkania rozlega się alarm torby jednego z pracowników.</p>
+<p>Wycisza go.</p>
+<p>Pięć minut później alarm rozlega się ponownie.</p>
+<p>— Musisz wyjść? — pyta jego kierowniczka.</p>
+<p>— Nie.</p>
+<p>Alarm rozlega się po raz trzeci.</p>
+<p>Kierowniczka patrzy na niego.</p>
+<p>— Idź.</p>
+<p>Wychodzi.</p>
+<p>Nikt nie reaguje.</p>
+<p>Próbuję wyobrazić sobie tę scenę w biurze w 2025 roku.</p>
+<p>Potem przypominam sobie, że w 2025 roku ludzie uczestniczyli w wideokonferencjach podczas aktywnego porodu.</p>
+<p>Być może ludzkość zawsze była dziwna.</p>
+<p>Różnica polega na tym, że teraz mamy lepsze krzesła.</p>
+<h2 id="lunch-z-lobby-jaja">Lunch z lobby Jaja</h2>
+<p>Żeby zrozumieć politykę 2055 roku, spotykam się z przedstawicielem Europejskiego Stowarzyszenia Rozwoju Zewnętrznego.</p>
+<p>ESRZ reprezentuje producentów inkubatorów, firmy monitorujące skorupy, ubezpieczycieli jaj i coś, co nazywa się „dostawcami mobilności prenatalnej”.</p>
+<p>Spotykamy się w restauracji, która ma stojaki na jaja przy każdym stoliku.</p>
+<p>Mój towarzysz lunchu ma na imię Victor.</p>
+<p>Nie lubi określenia Lobby Jaja.</p>
+<p>— Reprezentujemy innowację reprodukcyjną.</p>
+<p>— Czy nie dokładnie to powiedziałoby lobby?</p>
+<p>Uśmiecha się.</p>
+<p>Victor uważa, że zewnętrzna inkubacja jest najważniejszą technologią wyzwolenia od czasu antykoncepcji.</p>
+<p>Ma statystyki.</p>
+<p>Rodzice Jaja szybciej wracają do pracy.</p>
+<p>Zgłaszają mniej komplikacji zdrowotnych związanych z ciążą.</p>
+<p>Drudzy rodzice wykonują więcej opieki prenatalnej.</p>
+<p>Wzrosła liczba urodzeń w rodzinach z jednym rodzicem.</p>
+<p>Podobnie jak liczba urodzeń wśród osób, które wcześniej unikały ciąży z powodów medycznych.</p>
+<p>Pytam o subskrypcje.</p>
+<p>Wzdycha.</p>
+<p>— Zaczyna się.</p>
+<p>— Czy zdrowie nienarodzonego dziecka powinno być za paywallem?</p>
+<p>— Nie jest.</p>
+<p>— Co jest za paywallem?</p>
+<p>— Zaawansowana interpretacja.</p>
+<p>— Czyli dane są darmowe?</p>
+<p>— Podstawowe dane.</p>
+<p>— A jeśli podstawowe dane pokazują problem?</p>
+<p>— Rodzic zostaje powiadomiony.</p>
+<p>— Co mówi powiadomienie?</p>
+<p>— Że dostępna jest zaawansowana interpretacja.</p>
+<p>Victor odkłada widelec.</p>
+<p>— Upraszczasz złożony ekosystem.</p>
+<p>Mówię mu, że właśnie to robią dziennikarze.</p>
+<p>On mówi mi, że dlatego nikt nam nie ufa.</p>
+<p>Przychodzi deser.</p>
+<p>Przy sąsiednim stoliku inkubator zaczyna alarmować.</p>
+<p>Wszyscy w restauracji się odwracają.</p>
+<p>Rodzic sprawdza ekran.</p>
+<p>— Bateria.</p>
+<p>Cała restauracja wydycha powietrze.</p>
+<p>Victor wskazuje na tę scenę.</p>
+<p>— Widzisz?</p>
+<p>— Co?</p>
+<p>— Wspólnotę.</p>
+<h2 id="publiczna-wylęgarnia">Publiczna wylęgarnia</h2>
+<p>Moja ostatnia wizyta odbywa się w publicznej wylęgarni pod Barceloną.</p>
+<p>Budynek wygląda jak lotnisko zaprojektowane przez ludzi, którzy boją się narożników.</p>
+<p>Rodziny przychodzą z torbami, kwiatami i przenośnymi futerałami na skorupy.</p>
+<p>Niektóre czekają od siedmiu miesięcy.</p>
+<p>Niektóre od lat.</p>
+<p>W Sali 12 spotykam Sofię.</p>
+<p>Ma 42 lata.</p>
+<p>Jajo jej syna zaczęło pękać.</p>
+<p>Przez skorupę biegnie cienka linia.</p>
+<p>Pytam, czy jest podekscytowana.</p>
+<p>— Nie.</p>
+<p>— Przestraszona?</p>
+<p>— Nie.</p>
+<p>— Co czujesz?</p>
+<p>— Muszę siku.</p>
+<p>Nie idzie.</p>
+<p>Pęknięcie rośnie.</p>
+<p>Wchodzi pielęgniarka.</p>
+<p>Potem wychodzi.</p>
+<p>Potem znowu wchodzi.</p>
+<p>Siostra Sofii przychodzi z kawą.</p>
+<p>Nikt jej nie pije.</p>
+<p>Przez czterdzieści minut prawie nic się nie dzieje.</p>
+<p>Potem dzieje się wszystko.</p>
+<p>Skorupa się porusza.</p>
+<p>Słychać dźwięk.</p>
+<p>Pojawia się ręka.</p>
+<p>Maleńka mokra ręka.</p>
+<p>Nikt się nie odzywa.</p>
+<p>Spędziłem trzy tygodnie, słuchając o modelach reprodukcyjnych.</p>
+<p>Modelu ekonomicznym.</p>
+<p>Modelu społecznym.</p>
+<p>Modelu prawnym.</p>
+<p>Modelu biologicznym.</p>
+<p>Teraz dziecko próbuje wydostać się z jaja.</p>
+<p>Cała teoria znika.</p>
+<p>Pielęgniarka podchodzi bliżej.</p>
+<p>Sofia płacze.</p>
+<p>Jej siostra płacze.</p>
+<p>Zdaję sobie sprawę, że ja też płaczę.</p>
+<p>Zawodowo jest to krępujące.</p>
+<p>Dziecko wychodzi.</p>
+<p>Jest wściekłe.</p>
+<p>Krzyczy.</p>
+<p>Sofia się śmieje.</p>
+<p>— Brzmi jak mój ojciec.</p>
+<p>Pielęgniarka owija go i kładzie na jej piersi.</p>
+<p>Po raz pierwszy Sofia dotyka dziecka, które monitorowała przez siedem miesięcy.</p>
+<p>Bez ekranu.</p>
+<p>Bez skorupy.</p>
+<p>Bez procentu.</p>
+<p>Tylko skóra.</p>
+<p>Później pytam, czy ponownie wybrałaby Model Jaja.</p>
+<p>Patrzy na inkubator.</p>
+<p>Potem na syna.</p>
+<p>— Zapytaj mnie, kiedy się wyśpię.</p>
+<p>To ta sama odpowiedź, której udzieliła mi Elena.</p>
+<p>Inna biologia.</p>
+<p>Ci sami rodzice.</p>
+<h2 id="czy-to-wszystko-naprawiło-dzietność">Czy to wszystko naprawiło dzietność?</h2>
+<p>W 2035 roku rządy uważały, że reprodukcja ma problem technologiczny.</p>
+<p>Ludzie mieli mniej dzieci.</p>
+<p>Rządy finansowały więc lepszą biologię.</p>
+<p>Zewnętrzną inkubację.</p>
+<p>Przenośne torby.</p>
+<p>Bezpieczniejszą tradycyjną ciążę.</p>
+<p>Początkowo wyniki wyglądały niezwykle.</p>
+<p>Liczba urodzeń z Jaja szybko rosła.</p>
+<p>Za nimi poszły urodzenia z Torby.</p>
+<p>Urodzenia z Pełnej Macicy ustabilizowały się.</p>
+<p>Politycy ogłosili zwycięstwo.</p>
+<p>Potem liczby znów się wypłaszczyły.</p>
+<p>Okazało się, że ludzie nie rezygnowali z dzieci wyłącznie dlatego, że ciąża była trudna.</p>
+<p>Martwili się także o mieszkanie.</p>
+<p>Pieniądze.</p>
+<p>Pracę.</p>
+<p>Opiekę nad dziećmi.</p>
+<p>Związki.</p>
+<p>Klimat.</p>
+<p>Czas.</p>
+<p>Mgliste poczucie, że dorosłość stała się drogą usługą subskrypcyjną, na którą nikt nie pamiętał, żeby się zapisywał.</p>
+<p>Technologia zmieniła ciążę.</p>
+<p>Nie zmieniła czynszu.</p>
+<p>Najskuteczniejszy program zwiększania dzietności w Europie okazał się ostatecznie zawstydzająco nudny.</p>
+<p>Dostępne cenowo mieszkania.</p>
+<p>Przewidywalna opieka nad dziećmi.</p>
+<p>Krótszy czas pracy.</p>
+<p>Chronione urlopy rodzicielskie.</p>
+<p>Możliwość wyobrażenia sobie następnych dziesięciu lat bez finansowych mdłości.</p>
+<p>Maszyny pomogły.</p>
+<p>Torby pomogły.</p>
+<p>Medycyna pomogła.</p>
+<p>Ale żadna technologia reprodukcyjna nie mogła naprawić społeczeństwa, które sprawiało, że ludzie bali się życia czekającego po narodzinach dziecka.</p>
+<h2 id="trzy-domy">Trzy domy</h2>
+<p>Ostatniego dnia wracam do trzech rodzin.</p>
+<p>Alma, jajo w kuchni, znów ma 99,6%.</p>
+<p>Marc przeszedł na Premium.</p>
+<p>Laura jest wściekła.</p>
+<p>— Ile?</p>
+<p>— Trzy miesiące za darmo.</p>
+<p>— Nie o to pytałam.</p>
+<p>Inkubator łagodnie świeci.</p>
+<p>W Sant Cugat Joel nosi Júlię.</p>
+<p>Twierdzi, że oficjalne liczby pokazują teraz 51/49.</p>
+<p>Marta mówi, że źle liczy drzemkę.</p>
+<p>Rozważają drugie dziecko.</p>
+<p>— Znowu Torba? — pytam.</p>
+<p>Patrzą na siebie.</p>
+<p>— Jajo — mówią jednocześnie.</p>
+<p>W Domu Ciągłości Elena urodziła.</p>
+<p>Pełna Macica.</p>
+<p>Trzydzieści dziewięć tygodni.</p>
+<p>Czternaście godzin porodu.</p>
+<p>Bez ekstrakcji.</p>
+<p>Bez inkubatora.</p>
+<p>Bez torby.</p>
+<p>Odwiedzam ją w szpitalu.</p>
+<p>Wygląda na zniszczoną.</p>
+<p>Dziecko śpi na jej piersi.</p>
+<p>— Nadal jesteś zadowolona ze swojego wyboru? — pytam.</p>
+<p>Patrzy na mnie.</p>
+<p>— Wyjdź.</p>
+<p>Wychodzę.</p>
+<p>Na zewnątrz Barcelona jest pełna rodzin.</p>
+<p>Kobieta pcha wózek z jajem przez przejście dla pieszych.</p>
+<p>Mężczyzna stoi na przystanku autobusowym z dzieckiem w torbie.</p>
+<p>Osoba w zaawansowanej ciąży powoli przechodzi obok apteki.</p>
+<p>Trzy technologie reprodukcyjne.</p>
+<p>Trzy gospodarki.</p>
+<p>Trzy tożsamości polityczne.</p>
+<p>Trzy zupełnie różne sposoby sprowadzenia człowieka na świat.</p>
+<p>Wszystkie zaprojektowane, by rozwiązać odwieczny problem posiadania dzieci.</p>
+<p>Żadna nie rozwiązuje odwiecznego problemu bycia rodzicem.</p>
+<p>O 19:42 mój telefon wibruje.</p>
+<p>To wiadomość od Marca.</p>
+<p>Zrzut ekranu.</p>
+<p>Alma: 99,8%.</p>
+<p>Pod spodem napisał:</p>
+<p>Myślisz, że to za dużo?</p>
+</article>
+<section class="support-card">
+  <h2>Podobała Ci się ta historia?</h2>
+  <p>
+    Future Correspondent to niezależna kolekcja spekulatywnych reportaży.
+    Jeśli chcesz pomóc sfinansować kolejną depeszę z przyszłości, która jeszcze
+    się nie wydarzyła, możesz wesprzeć projekt.
+  </p>
+
+  <a
+    class="support-button"
+    href="https://buymeacoffee.com/djkwlab"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Wesprzyj następną historię →
+  </a>
+</section>
+<div class="reader-note">
+  <p>© 2026 djkwlab · All rights reserved.</p>
+  <p>To dzieło spekulatywnego reportażu narracyjnego. Przedstawione postacie i wydarzenia są fikcyjne.</p>
+</div>
+</main>
+
+<script>
+const root=document.documentElement, toc=document.getElementById('toc');
+const saved=JSON.parse(localStorage.getItem('readerPrefs')||'{}');
+let size=saved.size||20, wide=saved.wide||false;
+if(saved.theme) root.dataset.theme=saved.theme;
+function apply(){
+  root.style.setProperty('--size',size+'px');
+  root.style.setProperty('--measure',wide?'820px':'700px');
+  localStorage.setItem('readerPrefs',JSON.stringify({size,wide,theme:root.dataset.theme}));
+}
+apply();
+document.getElementById('tocBtn').onclick=()=>toc.classList.toggle('open');
+document.addEventListener('click',e=>{if(!toc.contains(e.target)&&e.target.id!=='tocBtn') toc.classList.remove('open')});
+document.getElementById('smaller').onclick=()=>{size=Math.max(16,size-1);apply()};
+document.getElementById('larger').onclick=()=>{size=Math.min(28,size+1);apply()};
+document.getElementById('widthBtn').onclick=()=>{wide=!wide;apply()};
+document.getElementById('themeBtn').onclick=()=>{root.dataset.theme=root.dataset.theme==='night'?'paper':'night';apply()};
+toc.querySelectorAll('a').forEach(a=>a.onclick=()=>toc.classList.remove('open'));
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById('progressBar').style.width=(h?scrollY/h*100:0)+'%';
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="es" data-theme="paper">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JXPHQJPPH5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JXPHQJPPH5');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="The fertility crisis was supposed to be solved by giving humans three ways to reproduce. Instead, we got subscription incubators, pouch custody disputes and a new generation of parents nostalgic for the days when pregnancy was merely terrifying.">
+<title>¿Útero, huevo o bolsa?</title>
+<style>
+:root {
+  --bg:#f4efe6; --paper:#fbf8f1; --text:#25231f; --muted:#716b61;
+  --accent:#b44d2f; --line:#d8d0c3; --panel:rgba(251,248,241,.92);
+  --serif: Georgia, "Times New Roman", serif; --sans: Inter, ui-sans-serif, system-ui, sans-serif;
+  --size:20px; --measure:700px;
+}
+html[data-theme="night"] {
+  --bg:#141413; --paper:#1c1c1a; --text:#e9e5dc; --muted:#aaa399;
+  --accent:#e68b68; --line:#3b3934; --panel:rgba(28,28,26,.94);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--text); font-family:var(--serif); }
+.progress { position:fixed; inset:0 0 auto 0; height:3px; z-index:30; background:transparent; }
+.progress > div { height:100%; width:0; background:var(--accent); }
+.toolbar {
+  position:sticky; top:0; z-index:20; display:flex; justify-content:space-between; gap:12px;
+  padding:10px 16px; border-bottom:1px solid var(--line); background:var(--panel);
+  backdrop-filter:blur(14px); font-family:var(--sans);
+}
+.toolbar .group { display:flex; gap:8px; align-items:center; }
+button {
+  border:1px solid var(--line); background:var(--paper); color:var(--text); border-radius:999px;
+  min-width:38px; height:38px; padding:0 12px; cursor:pointer; font:600 14px var(--sans);
+}
+button:hover { border-color:var(--accent); }
+.lang-link {
+  display:inline-flex; align-items:center; justify-content:center; min-width:38px; height:38px;
+  padding:0 10px; border:1px solid var(--line); border-radius:999px; color:var(--text);
+  text-decoration:none; font:700 13px var(--sans);
+}
+.lang-link:hover, .lang-link.active { border-color:var(--accent); color:var(--accent); }
+.hero { max-width:1000px; margin:0 auto; padding:clamp(56px,10vw,120px) 24px 56px; }
+.kicker { font:700 12px/1 var(--sans); letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+h1 { font-size:clamp(54px,9vw,112px); line-height:.88; letter-spacing:-.055em; margin:18px 0 28px; max-width:900px; }
+.subtitle { font:700 clamp(22px,3vw,36px)/1.12 var(--sans); max-width:820px; margin:0 0 22px; }
+.dek { font-size:clamp(20px,2.2vw,27px); line-height:1.4; color:var(--muted); max-width:780px; }
+.meta { margin-top:32px; font:600 13px var(--sans); color:var(--muted); }
+.layout { display:grid; grid-template-columns:minmax(0,1fr); max-width:1200px; margin:0 auto; padding:0 24px 100px; }
+.toc {
+  position:fixed; left:24px; top:82px; width:230px; max-height:calc(100vh - 110px); overflow:auto;
+  padding:18px; border:1px solid var(--line); border-radius:18px; background:var(--panel);
+  backdrop-filter:blur(12px); font-family:var(--sans); transform:translateX(-130%); transition:.25s ease; z-index:25;
+}
+.toc.open { transform:translateX(0); }
+.toc strong { display:block; margin-bottom:12px; font-size:13px; }
+.toc a { display:block; color:var(--muted); text-decoration:none; padding:7px 0; font-size:13px; line-height:1.25; }
+.toc a:hover { color:var(--accent); }
+article { width:min(100%,var(--measure)); margin:0 auto; font-size:var(--size); line-height:1.72; }
+article p { margin:0 0 1.25em; }
+article p:first-of-type::first-letter {
+  float:left; font-size:4.7em; line-height:.78; padding:.08em .08em 0 0; color:var(--accent);
+}
+h2 { font:800 clamp(34px,5vw,58px)/.98 var(--sans); letter-spacing:-.045em; margin:2.3em 0 .7em; scroll-margin-top:80px; }
+.display-line {
+  font:800 13px/1.5 var(--sans); letter-spacing:.08em; text-transform:uppercase; padding:14px 16px;
+  border-left:3px solid var(--accent); background:color-mix(in srgb,var(--accent) 7%,transparent);
+}
+.reader-note {
+  margin:70px auto 0; padding:24px; border-top:1px solid var(--line); color:var(--muted);
+  font:14px/1.5 var(--sans); width:min(100%,var(--measure)); text-align:center;
+}
+.reader-note p { margin:.35em 0; }
+@media (max-width:700px) {
+  .toolbar { padding:8px 10px; }
+  .toolbar .label { display:none; }
+  .hero { padding-left:20px; padding-right:20px; }
+  .layout { padding-left:20px; padding-right:20px; }
+  article { line-height:1.62; }
+}
+@media print {
+  .toolbar,.progress,.toc { display:none!important; }
+  body { background:white; }
+  .hero,.layout { padding-left:0; padding-right:0; }
+}
+    .support-card {
+  width: min(100%, var(--measure));
+  margin: 80px auto 32px;
+  padding: clamp(28px, 5vw, 48px);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  text-align: center;
+}
+
+.support-card h2 {
+  margin: 0 0 16px;
+  font: 800 clamp(28px, 4vw, 42px) / 1.05 var(--sans);
+  letter-spacing: -0.035em;
+}
+
+.support-card p {
+  max-width: 560px;
+  margin: 0 auto 24px;
+  color: var(--muted);
+  font: 17px / 1.6 var(--sans);
+}
+
+.support-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font: 700 15px var(--sans);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.support-button:hover {
+  transform: translateY(-2px);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+}
+    .nav-support {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  padding: 0 14px;
+  margin-left: 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--paper);
+  text-decoration: none;
+  font: 700 13px var(--sans);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-support:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+</style>
+</head>
+<body>
+<div class="progress"><div id="progressBar"></div></div>
+
+<nav class="toolbar" aria-label="Reader controls">
+  <div class="group">
+    <button id="tocBtn" aria-label="Open contents">☰ <span class="label">Contents</span></button>
+  </div>
+  <div class="group">
+    <a class="lang-link" href="index.html" aria-label="English version">EN</a>
+    <a class="lang-link active" href="es.html" aria-label="Versión en español">ES</a>
+    <a class="lang-link" href="pl.html" aria-label="Wersja polska">PL</a>
+     <a
+      class="nav-support"
+      href="https://buymeacoffee.com/djkwlab"
+      target="_blank"
+      rel="noopener noreferrer"
+     >
+      Apoyar
+    </a>
+    <button id="smaller" aria-label="Decrease text size">A−</button>
+    <button id="larger" aria-label="Increase text size">A+</button>
+    <button id="widthBtn" aria-label="Change reading width">↔</button>
+    <button id="themeBtn" aria-label="Toggle night mode">◐</button>
+  </div>
+</nav>
+
+<aside class="toc" id="toc">
+  <strong>En este reportaje</strong>
+<a href="#la-incubadora-de-la-cocina">La incubadora de la cocina</a>
+<a href="#el-distrito-del-huevo">El Distrito del Huevo</a>
+<a href="#la-mujer-que-eligi-el-tero">La mujer que eligió el útero</a>
+<a href="#clase-prenatal-para-tradicionalistas">Clase prenatal para tradicionalistas</a>
+<a href="#un-beb-cambia-de-cuerpo-a-las-18-15">Un bebé cambia de cuerpo a las 18:15</a>
+<a href="#el-calendario-de-la-bolsa">El calendario de la bolsa</a>
+<a href="#noche-de-bolsa">Noche de bolsa</a>
+<a href="#la-oficina-de-las-bolsas">La oficina de las bolsas</a>
+<a href="#almuerzo-con-el-lobby-del-huevo">Almuerzo con el lobby del huevo</a>
+<a href="#la-eclosionadora-p-blica">La eclosionadora pública</a>
+<a href="#arregl-todo-esto-la-natalidad">¿Arregló todo esto la natalidad?</a>
+<a href="#tres-hogares">Tres hogares</a>
+</aside>
+
+<header class="hero">
+  <div class="kicker">Reportaje narrativo · 2055</div>
+  <h1>¿Útero, huevo o bolsa?</h1>
+  <p class="subtitle">Pasé tres semanas con los padres de 2055. Nadie sabe lo que está haciendo.</p>
+  <p class="dek">La crisis de fertilidad debía resolverse dando a los humanos tres formas de reproducirse. En cambio, obtuvimos incubadoras por suscripción, disputas por la custodia de bolsas y una nueva generación de padres nostálgicos de los tiempos en que el embarazo era simplemente aterrador.</p>
+  <div class="meta">Aprox. 20 minutos de lectura</div>
+</header>
+
+<main class="layout">
+<article id="article">
+<p>A las 7:42 de una lluviosa mañana de martes en Barcelona, una niña que aún no ha nacido está pidiendo una actualización de software.</p>
+<p>Estoy descalzo en la cocina de Laura Méndez y Marc Vidal, mirando a su hija.</p>
+<p>Es un huevo.</p>
+<p>El huevo tiene aproximadamente el tamaño de una sandía pequeña y descansa dentro de una cámara de cristal blanco, entre una cafetera y un cuenco de naranjas. Una suave luz ámbar recorre la cáscara. En algún lugar de su interior, tras siete meses de desarrollo, hay un ser humano que pesa 2,6 kilos y nunca ha experimentado el tiempo atmosférico.</p>
+<p>La incubadora emite un sonido.</p>
+<p>No es exactamente una alarma.</p>
+<p>Se parece más al ruido que hace un coche caro cuando quiere que sepas que algo, en algún lugar, quizá requiere atención.</p>
+<p>Marc mira el teléfono.</p>
+<p>—¿Otra vez?</p>
+<p>—¿Qué? —pregunta Laura.</p>
+<p>—La humedad.</p>
+<p>La pantalla de la incubadora cambia.</p>
+<p class="display-line">VARIACIÓN DE HUMEDAD DETECTADA
+SALUD EMBRIONARIA: 99,4 %
+ACCIÓN RECOMENDADA DISPONIBLE</p>
+<p>Marc toca la pantalla.</p>
+<p>Aparece un segundo mensaje.</p>
+<p class="display-line">Actualiza a NestLife Premium Care para desbloquear recomendaciones detalladas.</p>
+<p>Nadie dice nada.</p>
+<p>La lluvia golpea el balcón.</p>
+<p>La cafetera empieza a moler los granos.</p>
+<p>La niña que aún no ha nacido continúa existiendo al 99,4 %.</p>
+<p>—Ayer estaba en 99,6 —dice Marc.</p>
+<p>—¿Ayer por la mañana?</p>
+<p>—Creo.</p>
+<p>—¿Crees?</p>
+<p>—Tengo capturas de pantalla.</p>
+<p>Las tiene.</p>
+<p>Marc guarda 318 capturas de pantalla con las métricas de salud de su hija aún no nacida.</p>
+<p>Laura me mira.</p>
+<p>—Por esto quería un embarazo de útero.</p>
+<p>Marc levanta la vista del teléfono.</p>
+<p>—No, no querías.</p>
+<p>—Me lo planteé.</p>
+<p>—Te lo planteaste durante once minutos.</p>
+<p>—Fueron once minutos muy serios.</p>
+<p>La incubadora vuelve a emitir el sonido.</p>
+<p>Marc suelta una palabrota.</p>
+<p>Esta es mi primera mañana con una Familia Huevo.</p>
+<p>Al final de la semana habré sostenido una batería portátil de incubación que cuesta más que mi primer coche, visitado una guardería pública de huevos bajo un centro comercial y visto a dos adultos discutir sobre si la cáscara de su hija aún no nacida parecía «ligeramente menos mate que ayer».</p>
+<p>Después pasaré cuatro días con una Familia Bolsa, donde una bebé de seis meses se mueve entre los cuerpos de sus padres siguiendo un calendario compartido.</p>
+<p>Por último, viviré con una mujer que está haciendo algo que, veinte años atrás, habría sido completamente corriente.</p>
+<p>Está embarazada de nueve meses.</p>
+<p>En 2055, eso la convierte en una radical.</p>
+<h2 id="la-incubadora-de-la-cocina">La incubadora de la cocina</h2>
+<p>Lo primero que notas de un huevo humano es que tiene presencia.</p>
+<p>Un embarazo puede entrar en una habitación de forma invisible.</p>
+<p>Un huevo es mobiliario.</p>
+<p>Laura y Marc viven en un piso de dos habitaciones en Poblenou. Tienen un sofá, una mesa de comedor, dos bicicletas colgadas de una pared y, en el centro de la cocina, 11.000 euros en infraestructura reproductiva.</p>
+<p>Está la incubadora principal.</p>
+<p>Está la incubadora de respaldo.</p>
+<p>Está la unidad de energía de emergencia.</p>
+<p>Está la cuna portátil de viaje.</p>
+<p>Hay tres cartuchos de humedad sellados.</p>
+<p>Hay un escáner médico de cáscara.</p>
+<p>Hay una pequeña caja roja que Marc me dice que nunca debo tocar.</p>
+<p>—¿Qué hay dentro?</p>
+<p>—Espuma de estabilización de emergencia.</p>
+<p>—¿Qué hace?</p>
+<p>—No lo sabemos.</p>
+<p>—¿Habéis leído las instrucciones?</p>
+<p>—Sí.</p>
+<p class="display-line">—¿Y?</p>
+<p>—Seguimos sin saberlo.</p>
+<p>Su hija se llama Alma.</p>
+<p>Lleva 183 días fuera del cuerpo de Laura.</p>
+<p>Laura la gestó durante ocho semanas. Después, el huevo fue extraído en una clínica y colocado en una incubadora médica. A las doce semanas, Laura y Marc se lo llevaron a casa.</p>
+<p>Pregunto qué sintieron aquel día.</p>
+<p>—Terror —dice Laura.</p>
+<p>—Fue precioso —dice Marc.</p>
+<p>—Terror.</p>
+<p>—Precioso y aterrador.</p>
+<p>—No. Principalmente aterrador.</p>
+<p>El hospital les dio un curso de formación de dos horas.</p>
+<p>Cubría el control de temperatura, el transporte de emergencia, los cortes de electricidad y algo llamado «actividad inesperada de la cáscara».</p>
+<p>—¿Qué es la actividad inesperada de la cáscara? —pregunto.</p>
+<p>—Preguntamos lo mismo —dice Laura.</p>
+<p>—¿Qué os dijeron?</p>
+<p>—Que lo sabríamos cuando ocurriera.</p>
+<p>Miro el huevo.</p>
+<p>El huevo no hace nada.</p>
+<p>Laura sirve café.</p>
+<p>Como muchas personas de su generación, eligió la incubación externa en parte porque no quería que el embarazo descarrilara su trabajo. Es arquitecta. Marc trabaja en ciberseguridad. Ambos tienen 36 años.</p>
+<p>Llevaban seis años hablando de tener hijos.</p>
+<p>Las conversaciones siempre terminaban igual.</p>
+<p>Ahora no.</p>
+<p>Después del próximo ascenso.</p>
+<p>Después del piso.</p>
+<p>Cuando bajen los tipos de interés.</p>
+<p>Después del proyecto.</p>
+<p>Después del verano.</p>
+<p>Después de Navidad.</p>
+<p>Cuando la vida sea más estable.</p>
+<p>La vida no se volvió más estable.</p>
+<p>Entonces España amplió el Programa Huevo Gratuito.</p>
+<p>Todo ciudadano pasó a tener derecho a una incubadora básica, apoyo energético de emergencia y acceso a centros municipales de incubación.</p>
+<p>Laura y Marc se apuntaron.</p>
+<p>—¿El programa hizo que decidierais tener un hijo? —pregunto.</p>
+<p>Laura lo piensa.</p>
+<p>—Eliminó algunas excusas.</p>
+<p>Marc parece ofendido.</p>
+<p>—No eran excusas.</p>
+<p>—Eran excusas muy sofisticadas.</p>
+<p>La incubadora del gobierno era gratuita.</p>
+<p>La devolvieron tres semanas después.</p>
+<p>—Era completamente segura —me dice Marc.</p>
+<p>—¿Qué tenía de malo?</p>
+<p>—La app era terrible.</p>
+<p>Compraron la NestLife Pro.</p>
+<p>El modelo básico cuesta 3.800 euros.</p>
+<p>Luego llegaron los accesorios.</p>
+<p>Luego las suscripciones.</p>
+<p>Luego los sistemas de respaldo.</p>
+<p>Luego el seguro.</p>
+<p>Pregunto cuánto han gastado.</p>
+<p>Marc dice 8.000 euros.</p>
+<p>Laura dice 11.000.</p>
+<p>Marc dice que algunas de esas compras eran innecesarias.</p>
+<p>Laura pregunta cuáles.</p>
+<p>Marc cambia de tema.</p>
+<p>El huevo está entre nosotros.</p>
+<p>Empiezo a entender algo sobre la Economía del Huevo.</p>
+<p>La tecnología no eliminó la ansiedad de los padres.</p>
+<p>Le dio un catálogo de productos.</p>
+<h2 id="el-distrito-del-huevo">El Distrito del Huevo</h2>
+<p>El miércoles viajo con Laura y Alma a un centro municipal de incubación.</p>
+<p>Transportar un huevo requiere preparación.</p>
+<p>Primero, Laura desconecta el cable principal de monitorización.</p>
+<p>Después conecta un sensor portátil.</p>
+<p>Luego coloca el huevo dentro de una cápsula de viaje que absorbe impactos.</p>
+<p>La cápsula va dentro de un transportín con temperatura controlada.</p>
+<p>El transportín se conecta a una batería.</p>
+<p>Todo el procedimiento dura nueve minutos.</p>
+<p>Pregunto si no sería más fácil dejar el huevo en casa.</p>
+<p>—Sí —dice Laura.</p>
+<p>—Entonces, ¿por qué nos la llevamos?</p>
+<p>Laura me mira como si hubiera sugerido dejar a una niña pequeña dentro de un armario.</p>
+<p>—Tiene cita.</p>
+<p>Cogemos el metro.</p>
+<p>Hay espacios reservados para huevos cerca de las puertas. Parecen portaequipajes diseñados por una unidad de cuidados intensivos neonatales.</p>
+<p>Un joven ya está usando uno.</p>
+<p>Su huevo va en un transportín transparente cubierto de pegatinas.</p>
+<p>Una dice:</p>
+<p class="display-line">BEBÉ A BORDO</p>
+<p>Otra:</p>
+<p class="display-line">NO GOLPEAR LA CÁSCARA</p>
+<p>Una tercera:</p>
+<p class="display-line">ABUELA CARGANDO…</p>
+<p>Laura se da cuenta de que estoy mirando.</p>
+<p>—Primer huevo —susurra.</p>
+<p>—¿Cómo lo sabes?</p>
+<p>—Las pegatinas.</p>
+<p>En la estación de Diagonal sube una mujer mayor y empieza inmediatamente a hacer preguntas sobre los huevos.</p>
+<p>¿Qué edad?</p>
+<p>¿Cuánto falta para la eclosión?</p>
+<p>¿Cáscara natural o reforzada?</p>
+<p>El joven responde educadamente.</p>
+<p>Laura mira el teléfono.</p>
+<p>Alma: 99,7 %.</p>
+<p>Sonríe.</p>
+<p>—¿Qué ha pasado?</p>
+<p>—Nada.</p>
+<p>—¿Eso es bueno?</p>
+<p>—Mucho.</p>
+<p>Cinco minutos antes, 99,4 % era aparentemente una crisis.</p>
+<p>Ahora 99,7 % es alegría.</p>
+<p>El centro municipal de incubación está bajo un complejo comercial.</p>
+<p>Encima de nosotros, la gente compra zapatillas.</p>
+<p>Debajo, 214 seres humanos aún no nacidos se desarrollan en armarios climatizados.</p>
+<p>La sala es enorme y muy silenciosa.</p>
+<p>Filas de incubadoras se extienden tras el cristal.</p>
+<p>Algunos huevos son blancos.</p>
+<p>Otros, crema.</p>
+<p>Otros, gris pálido.</p>
+<p>Uno tiene una bufanda de un club de fútbol alrededor de la base.</p>
+<p>Nos recibe un técnico llamado Óscar.</p>
+<p>Lleva seis años trabajando aquí.</p>
+<p>—¿Los padres los dejan durante la noche? —pregunto.</p>
+<p>—Claro.</p>
+<p>—¿Durante cuánto tiempo?</p>
+<p>—Algunas personas los dejan durante meses.</p>
+<p>—¿Meses?</p>
+<p>Óscar se encoge de hombros.</p>
+<p>—La gente viaja.</p>
+<p>Me lleva junto al ala de incubación de larga estancia.</p>
+<p>Cada huevo tiene una pequeña pantalla.</p>
+<p>Nombres.</p>
+<p>Etapa de desarrollo.</p>
+<p>Estado médico.</p>
+<p>Información de contacto.</p>
+<p>Una pantalla muestra una fotografía de dos padres en una playa de Tailandia.</p>
+<p>Su hijo aún no nacido está en Barcelona.</p>
+<p>—¿Qué te parece eso? —pregunto a Óscar.</p>
+<p>Parece sinceramente confundido.</p>
+<p>—¿Tailandia?</p>
+<p>—Que los padres dejen el huevo.</p>
+<p>—Aquí está seguro.</p>
+<p>—Me refiero emocionalmente.</p>
+<p>Óscar lo piensa.</p>
+<p>—Se lo preguntas a la generación equivocada.</p>
+<p>Tiene 29 años.</p>
+<p>Para él, un huevo no es un embarazo extraído de una persona.</p>
+<p>Es simplemente de donde vienen los bebés.</p>
+<p>Sus propios padres lo tuvieron a la antigua.</p>
+<p>Útero completo.</p>
+<p>—¿Tú lo harías?</p>
+<p>Se ríe.</p>
+<p>—Mi madre tuvo hemorroides durante seis meses.</p>
+<p>Lo apunto.</p>
+<p>—Por favor, no pongas eso en el artículo.</p>
+<h2 id="la-mujer-que-eligi-el-tero">La mujer que eligió el útero</h2>
+<p>Tres días después estoy frente a un centro prenatal en Gràcia.</p>
+<p>El cartel dice:</p>
+<p class="display-line">LA CASA DE LA CONTINUIDAD</p>
+<p>Debajo:</p>
+<p class="display-line">APOYO A LA GESTACIÓN COMPLETA EN UNA ERA TECNOLÓGICA</p>
+<p>Dentro, todo es beige.</p>
+<p>Las paredes son beige.</p>
+<p>Los muebles son beige.</p>
+<p>De algún modo, hasta el té es beige.</p>
+<p>Una mujer llamada Elena está sentada sobre un gran cojín, con ambas manos sobre el vientre.</p>
+<p>Tiene 34 años y está embarazada de 37 semanas.</p>
+<p>Su bebé está completamente dentro de su cuerpo.</p>
+<p>No hay sensores externos.</p>
+<p>No hay cáscara.</p>
+<p>No hay app.</p>
+<p>No hay batería.</p>
+<p>Me resulta sorprendentemente inquietante.</p>
+<p>—¿Cómo sabes que todo está bien? —pregunto.</p>
+<p>Elena me mira.</p>
+<p>—Voy al médico.</p>
+<p>—Sí, pero ahora mismo.</p>
+<p>—Se mueve.</p>
+<p>—¿Y si no se mueve?</p>
+<p>—Me preocupo.</p>
+<p>—¿Y entonces?</p>
+<p>—Sigo preocupándome.</p>
+<p>Este es, al parecer, el sistema original.</p>
+<p>Elena forma parte de la minoría del Útero Completo.</p>
+<p>El 31 % de los nacimientos en Europa occidental se producen ahora de esta manera.</p>
+<p>Se esperaba que la cifra cayera mucho más rápido.</p>
+<p>En cambio, el útero se volvió político.</p>
+<p>Algunas personas lo eligen por motivos religiosos.</p>
+<p>Otras por razones médicas.</p>
+<p>Algunas porque desconfían de la tecnología.</p>
+<p>Otras porque no les gusta la idea de que su hijo aún no nacido tenga un puerto de carga cerca.</p>
+<p>Elena dice que no es ideológica.</p>
+<p>Simplemente quería experimentar el embarazo.</p>
+<p>Sus amigas reaccionaron como si hubiera anunciado que pensaba cruzar el Atlántico en un barco de madera.</p>
+<p>—Una me preguntó si era anticiencia.</p>
+<p>—¿Lo eres?</p>
+<p>—Tengo un robot aspirador.</p>
+<p>A su empresa le hizo menos gracia.</p>
+<p>Elena trabaja para una compañía de logística.</p>
+<p>Cuando anunció su embarazo, su jefe la felicitó.</p>
+<p>Después le preguntó si había considerado la extracción.</p>
+<p>—¿Inmediatamente?</p>
+<p>—No inmediatamente. Hubo una pausa.</p>
+<p>—¿Cuánto duró?</p>
+<p>—Quizá cuatro segundos.</p>
+<p>—Es una pausa larga.</p>
+<p>—Fue una pausa larguísima.</p>
+<p>Según la ley española, los empleadores no pueden discriminar por modelo reproductivo.</p>
+<p>Esta ley existe porque los empleadores discriminan por modelo reproductivo.</p>
+<p>Los padres Huevo son considerados operativamente predecibles.</p>
+<p>Los padres Bolsa, operativamente flexibles.</p>
+<p>Los padres Útero son considerados, según un documento corporativo filtrado en 2052, un «riesgo de continuidad reproductiva».</p>
+<p>La empresa responsable pidió disculpas.</p>
+<p>También cambió la expresión.</p>
+<p>El embarazo de Elena ha sido físicamente difícil.</p>
+<p>Le duele la espalda.</p>
+<p>Duerme mal.</p>
+<p>Dejó de desplazarse a la oficina en la semana 34.</p>
+<p>Le pregunto si alguna vez se arrepiente de no haber elegido un huevo.</p>
+<p>—Todos los días.</p>
+<p>Espero.</p>
+<p>—¿De verdad?</p>
+<p>—No.</p>
+<p>Sonríe.</p>
+<p>—Pregúntame a las tres de la mañana.</p>
+<p>El bebé se mueve.</p>
+<p>Puedo verlo a través de su camiseta.</p>
+<p>Por primera vez durante mi reportaje, no hay una pantalla entre el ser humano en desarrollo y yo.</p>
+<p>No hay porcentaje.</p>
+<p>No hay indicador verde de estado.</p>
+<p>No hay estimación.</p>
+<p>Solo movimiento.</p>
+<p>Pregunto a Elena si eso la hace sentirse más conectada con el bebé.</p>
+<p>Suspira.</p>
+<p>—Vosotros siempre preguntáis eso.</p>
+<p>—¿Vosotros?</p>
+<p>—Periodistas. Padres Huevo. Mi madre.</p>
+<p>—¿Qué debería preguntar?</p>
+<p>—Pregunta si estoy cómoda.</p>
+<p>—¿Lo estás?</p>
+<p>—No.</p>
+<h2 id="clase-prenatal-para-tradicionalistas">Clase prenatal para tradicionalistas</h2>
+<p>Vuelvo a la Casa de la Continuidad a la mañana siguiente.</p>
+<p>Siete personas embarazadas están sentadas en círculo.</p>
+<p>Sus parejas se sientan a su lado.</p>
+<p>La instructora está explicando el parto.</p>
+<p>Había olvidado lo violentos que son los diagramas.</p>
+<p>Veinte años de tecnología reproductiva han cambiado nuestra tolerancia al parto tradicional.</p>
+<p>Una de las parejas levanta la mano.</p>
+<p>—Perdón. ¿La cabeza entera?</p>
+<p>La instructora asiente.</p>
+<p>—¿Por ahí?</p>
+<p>—Sí.</p>
+<p>Mira a su mujer embarazada.</p>
+<p>Ella le devuelve la mirada.</p>
+<p>Algo pasa entre los dos.</p>
+<p>Posiblemente amor.</p>
+<p>Posiblemente culpa.</p>
+<p>Durante la pausa hablo con una pareja llamada Dani e Irene.</p>
+<p>Consideraron los tres modelos.</p>
+<p>Descartaron el huevo porque Dani trabaja en software.</p>
+<p>—Sé cómo se fabrica la tecnología —dice.</p>
+<p>Descartaron la bolsa porque Irene no quería un implante.</p>
+<p>Así que eligieron el útero.</p>
+<p>—¿La gente os juzga? —pregunto.</p>
+<p>—Constantemente —dice Irene.</p>
+<p>—¿Por ser tradicionales?</p>
+<p>—Por ser irresponsables.</p>
+<p>Esto me sorprende.</p>
+<p>Ella lo explica.</p>
+<p>Cuando cada modelo reproductivo era destino biológico, las complicaciones del embarazo eran una tragedia.</p>
+<p>Ahora pueden interpretarse como una decisión de consumo.</p>
+<p>Si Irene desarrolla un problema, alguien preguntará si podría haberse evitado con una extracción.</p>
+<p>Si su carrera se frena, alguien preguntará por qué eligió la opción menos compatible con el trabajo.</p>
+<p>La elección, me dice, debía crear libertad.</p>
+<p>En cambio, creó nuevas formas de culpar a la gente.</p>
+<p>Al otro lado de la sala, la instructora llama a todos para continuar.</p>
+<p>El siguiente tema es la recuperación del suelo pélvico.</p>
+<p>Dani cierra los ojos.</p>
+<h2 id="un-beb-cambia-de-cuerpo-a-las-18-15">Un bebé cambia de cuerpo a las 18:15</h2>
+<p>La Familia Bolsa vive en Sant Cugat.</p>
+<p>Llego durante el traslado de la tarde.</p>
+<p>No es intencionado.</p>
+<p>El tren llegó tarde.</p>
+<p>Cuando se abre la puerta, un hombre llamado Joel dice:</p>
+<p>—Momento perfecto. Está saliendo.</p>
+<p>Conozco a Joel desde hace once segundos.</p>
+<p>Tiene la camisa abierta.</p>
+<p>Dentro de una bolsa abdominal está su hija, Júlia.</p>
+<p>Tiene cinco meses.</p>
+<p>O siete meses prenatales.</p>
+<p>La terminología sigue siendo polémica.</p>
+<p>Su cabeza aparece primero.</p>
+<p>Tiene el pelo oscuro y una expresión furiosa.</p>
+<p>La mujer de Joel, Marta, está sentada en el sofá con una prenda de transferencia.</p>
+<p>—¿Ha dormido? —pregunta Marta.</p>
+<p>—Cuarenta minutos.</p>
+<p>—¿Solo?</p>
+<p>—Quizá cincuenta.</p>
+<p>—Has dicho cuarenta.</p>
+<p>—No lo cronometré.</p>
+<p>—Tienes la app.</p>
+<p>—Estaba trabajando.</p>
+<p>—Estabas llevando a nuestra hija.</p>
+<p>—Puedo hacer dos cosas a la vez.</p>
+<p>Marta me mira.</p>
+<p>—Por esto está cayendo la natalidad.</p>
+<p>El traslado es sorprendentemente tranquilo.</p>
+<p>Joel se sienta junto a Marta.</p>
+<p>Una enfermera les enseñó a hacerlo meses atrás.</p>
+<p>La bebé se desprende de la membrana interna de alimentación de Joel, queda sostenida entre ambos cuerpos y se acomoda lentamente en la bolsa de Marta.</p>
+<p>Dura cuatro minutos.</p>
+<p>Júlia protesta.</p>
+<p>Después desaparece.</p>
+<p>Marta cierra la capa de soporte de su camiseta.</p>
+<p>—¿Ya está? —pregunto.</p>
+<p>—Ya está.</p>
+<p>Joel se levanta.</p>
+<p>Se estira.</p>
+<p>Después va a la cocina y abre una cerveza.</p>
+<p>La velocidad de la transformación es extraordinaria.</p>
+<p>Hace cuatro minutos sostenía biológicamente a un ser humano en desarrollo.</p>
+<p>Ahora está buscando aceitunas.</p>
+<p>—¿Qué sientes cuando se va? —pregunto.</p>
+<p>—Vacío.</p>
+<p>Hace una pausa.</p>
+<p>—Vacío físicamente. No lo hagas poético.</p>
+<p>Lo apunto.</p>
+<h2 id="el-calendario-de-la-bolsa">El calendario de la bolsa</h2>
+<p>El calendario familiar aparece en una pantalla de la cocina.</p>
+<p>Lunes:
+JOEL — BEBÉ</p>
+<p>Martes:
+MARTA — BEBÉ</p>
+<p>Miércoles:
+JOEL MAÑANA / MARTA TARDE</p>
+<p>Jueves:
+ABUELA 14:00–19:00</p>
+<p>Viernes:
+MARTA — BEBÉ</p>
+<p>El sábado está en blanco.</p>
+<p>Pregunto por qué.</p>
+<p>—Estamos negociando —dice Marta.</p>
+<p>El Programa Español de Gestación Compartida recompensa a las familias que dividen el tiempo de carga biológica.</p>
+<p>Los padres no tienen que repartirlo por igual.</p>
+<p>Pero cuanto más se acercan al 50/50, mayor es su crédito anual de cuidados.</p>
+<p>El gobierno lo describe como un incentivo a la igualdad reproductiva.</p>
+<p>Joel lo describe como «el Estado convirtiendo mi abdomen en una hoja de cálculo».</p>
+<p>El año pasado estalló un escándalo cuando se descubrió que varias familias ricas pagaban a cuidadores registrados para llevar a sus bebés y cobrar la bonificación por igualdad.</p>
+<p>Los periódicos lo llamaron Pouchgate.</p>
+<p>Dimieron tres ministros.</p>
+<p>Uno de ellos nunca había llevado a sus propios hijos, a pesar de aparecer en una campaña del gobierno con el eslogan:</p>
+<p class="display-line">TODO CUERPO PUEDE CUIDAR</p>
+<p>Marta y Joel están ahora en 54/46.</p>
+<p>Ambos creen ser el 54.</p>
+<p>La app oficial sabe la respuesta.</p>
+<p>Ninguno quiere abrirla mientras estoy allí.</p>
+<p>Durante la cena, Júlia se mueve dentro de Marta.</p>
+<p>El movimiento es visible.</p>
+<p>Joel observa.</p>
+<p>—¿Ves?</p>
+<p>—¿Qué?</p>
+<p>—Ahora está activa.</p>
+<p>—Conmigo también estaba activa.</p>
+<p>—No así.</p>
+<p>—Literalmente me dio una patada durante una reunión.</p>
+<p>—Porque quería irse.</p>
+<p>Este es el sistema reproductivo más igualitario jamás inventado.</p>
+<p>No ha terminado con los conflictos matrimoniales.</p>
+<p>Ha generado mejores datos.</p>
+<h2 id="noche-de-bolsa">Noche de bolsa</h2>
+<p>Me quedo hasta las dos de la madrugada.</p>
+<p>A las 23:40, Júlia se despierta.</p>
+<p>Marta camina por el piso.</p>
+<p>A las 00:15 vuelve a despertarse.</p>
+<p>A la 1:03, otra vez.</p>
+<p>La bebé técnicamente no ha nacido.</p>
+<p>Ya está arruinando el sueño de todos.</p>
+<p>A la 1:20, Joel se ofrece a cogerla.</p>
+<p>Marta dice que no.</p>
+<p>A la 1:25, dice que sí.</p>
+<p>Hacen el traslado casi a oscuras.</p>
+<p>Sin discusión.</p>
+<p>Sin calendario.</p>
+<p>Sin incentivo del gobierno.</p>
+<p>Marta se duerme casi inmediatamente.</p>
+<p>Joel se sienta en el sofá con Júlia dentro.</p>
+<p>Yo me siento enfrente.</p>
+<p>Durante un rato, ninguno de los dos habla.</p>
+<p>Entonces dice:</p>
+<p>—Esta es la parte que la gente no entiende.</p>
+<p>—¿Qué parte?</p>
+<p>Mira hacia abajo.</p>
+<p>—Que pesa.</p>
+<p>—¿La bebé?</p>
+<p>—No.</p>
+<p>Busca la palabra.</p>
+<p>—Ser necesario.</p>
+<p>El piso está en silencio.</p>
+<p>Pienso que quizá sea lo más profundo que alguien me ha dicho durante tres semanas de reportaje.</p>
+<p>Entonces vibra el monitor de su bolsa.</p>
+<p>Lo mira.</p>
+<p>—Perdón. Ha hecho caca.</p>
+<h2 id="la-oficina-de-las-bolsas">La oficina de las bolsas</h2>
+<p>A la mañana siguiente visito el lugar de trabajo de Joel.</p>
+<p>Su empresa tiene 400 empleados y nueve salas de transferencia.</p>
+<p>Originalmente se llamaban Instalaciones de Intercambio de Cuidados Biológicos.</p>
+<p>Nadie usaba ese nombre.</p>
+<p>Ahora se llaman Salas de Bebés.</p>
+<p>Una contiene un sofá, un lavabo, equipo médico y un cartel enmarcado:</p>
+<p class="display-line">COMPARTIR LA CARGA ES COMPARTIR EL CUIDADO</p>
+<p>Alguien ha escrito debajo:</p>
+<p class="display-line">A MENOS QUE MARTA TENGA UNA ENTREGA</p>
+<p>Recursos Humanos ha intentado borrarlo dos veces.</p>
+<p>Siempre vuelve.</p>
+<p>Joel me dice que, en general, los padres Bolsa reciben buen trato en la empresa.</p>
+<p>Después entramos en una reunión.</p>
+<p>Hay seis personas.</p>
+<p>Tres están gestando.</p>
+<p>Nadie lo menciona.</p>
+<p>Veinte minutos después, suena la alarma de la bolsa de un empleado.</p>
+<p>La silencia.</p>
+<p>Cinco minutos después vuelve a sonar.</p>
+<p>—¿Necesitas salir? —pregunta su jefa.</p>
+<p>—No.</p>
+<p>La alarma suena por tercera vez.</p>
+<p>La jefa lo mira.</p>
+<p>—Vete.</p>
+<p>Él sale.</p>
+<p>Nadie reacciona.</p>
+<p>Intento imaginar esta escena en una oficina de 2025.</p>
+<p>Entonces recuerdo que en 2025 la gente asistía a videollamadas mientras estaba literalmente de parto.</p>
+<p>Quizá la humanidad siempre ha sido extraña.</p>
+<p>La diferencia es que ahora tenemos mejores sillas.</p>
+<h2 id="almuerzo-con-el-lobby-del-huevo">Almuerzo con el lobby del huevo</h2>
+<p>Para entender la política de 2055, me reúno con un representante de la Asociación Europea de Desarrollo Externo.</p>
+<p>La AEDE representa a fabricantes de incubadoras, empresas de monitorización de cáscaras, aseguradoras de huevos y algo llamado «proveedores de movilidad prenatal».</p>
+<p>Nos encontramos en un restaurante con soportes para huevos junto a cada mesa.</p>
+<p>Mi acompañante se llama Victor.</p>
+<p>No le gusta la expresión Lobby del Huevo.</p>
+<p>—Representamos la innovación reproductiva.</p>
+<p>—¿No es eso lo que diría un lobby?</p>
+<p>Sonríe.</p>
+<p>Victor cree que la incubación externa es la tecnología de liberación más importante desde la anticoncepción.</p>
+<p>Tiene estadísticas.</p>
+<p>Los padres Huevo vuelven antes al trabajo.</p>
+<p>Declaran menos complicaciones de salud relacionadas con el embarazo.</p>
+<p>Los segundos progenitores realizan más cuidados prenatales.</p>
+<p>Han aumentado los nacimientos monoparentales.</p>
+<p>También los nacimientos entre personas que antes evitaban el embarazo por razones médicas.</p>
+<p>Pregunto por las suscripciones.</p>
+<p>Suspira.</p>
+<p>—Ya empezamos.</p>
+<p>—¿La salud de un niño aún no nacido debería estar detrás de un muro de pago?</p>
+<p>—No lo está.</p>
+<p>—¿Qué está detrás del muro de pago?</p>
+<p>—La interpretación avanzada.</p>
+<p>—¿Entonces los datos son gratuitos?</p>
+<p>—Los datos básicos.</p>
+<p>—¿Y si los datos básicos muestran un problema?</p>
+<p>—Se avisa al progenitor.</p>
+<p>—¿Qué dice el aviso?</p>
+<p>—Que hay una interpretación avanzada disponible.</p>
+<p>Victor deja el tenedor.</p>
+<p>—Estás simplificando un ecosistema complejo.</p>
+<p>Le digo que eso es lo que hacemos los periodistas.</p>
+<p>Él me dice que por eso nadie confía en nosotros.</p>
+<p>Llega el postre.</p>
+<p>En la mesa de al lado, una incubadora empieza a sonar.</p>
+<p>Todo el restaurante se gira.</p>
+<p>El padre mira la pantalla.</p>
+<p>—Batería.</p>
+<p>Todo el restaurante exhala.</p>
+<p>Victor señala la escena.</p>
+<p>—¿Ves?</p>
+<p>—¿Qué?</p>
+<p>—Comunidad.</p>
+<h2 id="la-eclosionadora-p-blica">La eclosionadora pública</h2>
+<p>Mi última visita es a una eclosionadora pública a las afueras de Barcelona.</p>
+<p>El edificio parece un aeropuerto diseñado por gente que teme las esquinas.</p>
+<p>Las familias llegan con bolsas, flores y estuches portátiles para cáscaras.</p>
+<p>Algunas llevan esperando siete meses.</p>
+<p>Otras, años.</p>
+<p>En la Sala 12 conozco a Sofia.</p>
+<p>Tiene 42 años.</p>
+<p>El huevo de su hijo ha empezado a agrietarse.</p>
+<p>Una fina línea cruza la cáscara.</p>
+<p>Pregunto si está emocionada.</p>
+<p>—No.</p>
+<p>—¿Asustada?</p>
+<p>—No.</p>
+<p>—¿Qué sientes?</p>
+<p>—Necesito hacer pis.</p>
+<p>No va.</p>
+<p>La grieta crece.</p>
+<p>Entra una enfermera.</p>
+<p>Después sale.</p>
+<p>Después vuelve a entrar.</p>
+<p>La hermana de Sofia llega con café.</p>
+<p>Nadie lo bebe.</p>
+<p>Durante cuarenta minutos, casi no pasa nada.</p>
+<p>Entonces pasa todo.</p>
+<p>La cáscara se mueve.</p>
+<p>Se oye un sonido.</p>
+<p>Aparece una mano.</p>
+<p>Una diminuta mano mojada.</p>
+<p>Nadie habla.</p>
+<p>He pasado tres semanas escuchando hablar de modelos reproductivos.</p>
+<p>El modelo económico.</p>
+<p>El modelo social.</p>
+<p>El modelo legal.</p>
+<p>El modelo biológico.</p>
+<p>Ahora un bebé está intentando salir de un huevo.</p>
+<p>Toda la teoría desaparece.</p>
+<p>La enfermera se acerca.</p>
+<p>Sofia está llorando.</p>
+<p>Su hermana está llorando.</p>
+<p>Me doy cuenta de que yo también estoy llorando.</p>
+<p>Profesionalmente, es embarazoso.</p>
+<p>El bebé sale.</p>
+<p>Está furioso.</p>
+<p>Grita.</p>
+<p>Sofia se ríe.</p>
+<p>—Suena como mi padre.</p>
+<p>La enfermera lo envuelve y lo coloca contra su pecho.</p>
+<p>Por primera vez, Sofia toca al hijo que lleva siete meses monitorizando.</p>
+<p>Sin pantalla.</p>
+<p>Sin cáscara.</p>
+<p>Sin porcentaje.</p>
+<p>Solo piel.</p>
+<p>Más tarde le pregunto si volvería a elegir el Modelo Huevo.</p>
+<p>Mira la incubadora.</p>
+<p>Después mira a su hijo.</p>
+<p>—Pregúntame después de dormir.</p>
+<p>Es la misma respuesta que me dio Elena.</p>
+<p>Biología diferente.</p>
+<p>Los mismos padres.</p>
+<h2 id="arregl-todo-esto-la-natalidad">¿Arregló todo esto la natalidad?</h2>
+<p>En 2035, los gobiernos creían que la reproducción tenía un problema tecnológico.</p>
+<p>La gente tenía menos hijos.</p>
+<p>Así que los gobiernos financiaron una biología mejor.</p>
+<p>Incubación externa.</p>
+<p>Bolsas transferibles.</p>
+<p>Embarazo tradicional más seguro.</p>
+<p>Al principio, los resultados parecieron extraordinarios.</p>
+<p>Los nacimientos Huevo aumentaron rápidamente.</p>
+<p>Los nacimientos Bolsa los siguieron.</p>
+<p>Los nacimientos de Útero Completo se estabilizaron.</p>
+<p>Los políticos declararon la victoria.</p>
+<p>Después, las cifras volvieron a estancarse.</p>
+<p>Resultó que la gente no evitaba tener hijos únicamente porque el embarazo fuera difícil.</p>
+<p>También le preocupaban la vivienda.</p>
+<p>El dinero.</p>
+<p>El trabajo.</p>
+<p>El cuidado infantil.</p>
+<p>Las relaciones.</p>
+<p>El clima.</p>
+<p>El tiempo.</p>
+<p>La vaga sensación de que la vida adulta se había convertido en un caro servicio de suscripción que nadie recordaba haber contratado.</p>
+<p>La tecnología cambió el embarazo.</p>
+<p>No cambió el alquiler.</p>
+<p>El programa de natalidad más exitoso de Europa resultó ser, al final, vergonzosamente aburrido.</p>
+<p>Vivienda asequible.</p>
+<p>Cuidado infantil predecible.</p>
+<p>Jornadas laborales más cortas.</p>
+<p>Permisos parentales protegidos.</p>
+<p>La posibilidad de imaginar los próximos diez años sin sentir náuseas financieras.</p>
+<p>Las máquinas ayudaron.</p>
+<p>Las bolsas ayudaron.</p>
+<p>La medicina ayudó.</p>
+<p>Pero ninguna tecnología reproductiva podía arreglar una sociedad que hacía que la gente temiera la vida que esperaba después de la llegada del bebé.</p>
+<h2 id="tres-hogares">Tres hogares</h2>
+<p>En mi último día regreso con las tres familias.</p>
+<p>Alma, el huevo de la cocina, ha vuelto al 99,6 %.</p>
+<p>Marc ha contratado Premium.</p>
+<p>Laura está furiosa.</p>
+<p>—¿Cuánto?</p>
+<p>—Tres meses gratis.</p>
+<p>—Eso no es lo que he preguntado.</p>
+<p>La incubadora brilla suavemente.</p>
+<p>En Sant Cugat, Joel lleva a Júlia.</p>
+<p>Afirma que las cifras oficiales ahora muestran un 51/49.</p>
+<p>Marta dice que está contabilizando mal una siesta.</p>
+<p>Están pensando en tener un segundo hijo.</p>
+<p>—¿Otra vez bolsa? —pregunto.</p>
+<p>Se miran.</p>
+<p>—Huevo —dicen al mismo tiempo.</p>
+<p>En la Casa de la Continuidad, Elena ha dado a luz.</p>
+<p>Útero Completo.</p>
+<p>Treinta y nueve semanas.</p>
+<p>Catorce horas de parto.</p>
+<p>Sin extracción.</p>
+<p>Sin incubadora.</p>
+<p>Sin bolsa.</p>
+<p>La visito en el hospital.</p>
+<p>Parece destrozada.</p>
+<p>La bebé duerme sobre su pecho.</p>
+<p>—¿Sigues contenta con tu elección? —pregunto.</p>
+<p>Me mira fijamente.</p>
+<p>—Fuera.</p>
+<p>Salgo.</p>
+<p>En la calle, Barcelona está llena de familias.</p>
+<p>Una mujer empuja un cochecito para huevos por un paso de peatones.</p>
+<p>Un hombre espera el autobús con un bebé dentro de su bolsa.</p>
+<p>Una persona con un embarazo avanzado camina lentamente junto a una farmacia.</p>
+<p>Tres tecnologías reproductivas.</p>
+<p>Tres economías.</p>
+<p>Tres identidades políticas.</p>
+<p>Tres formas completamente distintas de traer un ser humano al mundo.</p>
+<p>Todas diseñadas para resolver el antiguo problema de tener hijos.</p>
+<p>Ninguna resuelve el antiguo problema de ser padre.</p>
+<p>A las 19:42, mi teléfono vibra.</p>
+<p>Es un mensaje de Marc.</p>
+<p>Una captura de pantalla.</p>
+<p>Alma: 99,8 %.</p>
+<p>Debajo ha escrito:</p>
+<p>¿Crees que es demasiado alto?</p>
+</article>
+<section class="support-card">
+  <h2>¿Te ha gustado esta historia?</h2>
+  <p>
+    Future Correspondent es una colección independiente de reportajes
+    especulativos. Si quieres ayudar a financiar el próximo despacho desde
+    un futuro que aún no ha ocurrido, puedes apoyar el proyecto.
+  </p>
+
+  <a
+    class="support-button"
+    href="https://buymeacoffee.com/djkwlab"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Apoya la próxima historia →
+  </a>
+</section>
+<div class="reader-note">
+  <p>© 2026 djkwlab · All rights reserved.</p>
+  <p>Esta es una obra de reportaje narrativo especulativo. Los personajes y acontecimientos representados son ficticios.</p>
+</div>
+</main>
+
+<script>
+const root=document.documentElement, toc=document.getElementById('toc');
+const saved=JSON.parse(localStorage.getItem('readerPrefs')||'{}');
+let size=saved.size||20, wide=saved.wide||false;
+if(saved.theme) root.dataset.theme=saved.theme;
+function apply(){
+  root.style.setProperty('--size',size+'px');
+  root.style.setProperty('--measure',wide?'820px':'700px');
+  localStorage.setItem('readerPrefs',JSON.stringify({size,wide,theme:root.dataset.theme}));
+}
+apply();
+document.getElementById('tocBtn').onclick=()=>toc.classList.toggle('open');
+document.addEventListener('click',e=>{if(!toc.contains(e.target)&&e.target.id!=='tocBtn') toc.classList.remove('open')});
+document.getElementById('smaller').onclick=()=>{size=Math.max(16,size-1);apply()};
+document.getElementById('larger').onclick=()=>{size=Math.min(28,size+1);apply()};
+document.getElementById('widthBtn').onclick=()=>{wide=!wide;apply()};
+document.getElementById('themeBtn').onclick=()=>{root.dataset.theme=root.dataset.theme==='night'?'paper':'night';apply()};
+toc.querySelectorAll('a').forEach(a=>a.onclick=()=>toc.classList.remove('open'));
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-innerHeight;
+  document.getElementById('progressBar').style.width=(h?scrollY/h*100:0)+'%';
+});
+</script>
+</body>
+</html>
